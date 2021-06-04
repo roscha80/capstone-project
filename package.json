@@ -2,7 +2,7 @@
   "name": "capstone-project",
   "version": "0.1.0",
   "private": true,
-  "author": "Rob Schade",
+  "author": "Rob Schade <roscha80@web.de>",
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
