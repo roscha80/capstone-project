@@ -5,12 +5,10 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  background-color: var(--background);
-  color: var(--fontcolor);
   
 }
 body {
-  font-family: sans-serif;
+  font-family: 'Oswald Yanone', sans-serif;
   font-size: 112.5%;
   height: 100vh;
   width: 100vh;
@@ -22,8 +20,11 @@ textarea {
 }
 
 :root {
-  --background: whitesmoke;
-  --fontcolor: steelblue;
+  --background_light: #DEF2F1;
+  --background_dark: #3AAFA9;
+  --fontcolor_light: #2B7A78;
+  --fontcolor_dark: #DEF2F1;
+  --contrast_color: #17252a
 }
 
 `

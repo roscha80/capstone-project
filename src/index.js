@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import GlobalStyles from './GlobalStyles'
+import FontStyles from './fontStyles'
 
 ReactDOM.render(
   <React.StrictMode>
+    <FontStyles />
     <GlobalStyles />
     <App />
   </React.StrictMode>,
