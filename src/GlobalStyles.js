@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   
 }
 body {
-  font-family: 'Oswald Yanone', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 112.5%;
   height: 100vh;
   width: 100vh;
@@ -24,8 +24,10 @@ textarea {
   --background_dark: #3AAFA9;
   --fontcolor_light: #2B7A78;
   --fontcolor_dark: #DEF2F1;
-  --contrast_color: #17252a
+  --contrast_color: #17252a;
 }
+
+
 
 `
 

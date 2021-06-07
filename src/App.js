@@ -1,34 +1,19 @@
-import styled from 'styled-components'
+import UserDataPage from './pages/UserDataPage'
+import styled from 'styled-components/macro'
 
 function App() {
   return (
-    <div>
-      <DarkTheme>Hello Rob</DarkTheme>
-      <LightTheme>Hello Rob</LightTheme>
-    </div>
+    <AppWrapper>
+      <UserDataPage />
+    </AppWrapper>
   )
 }
 
 export default App
 
-const DarkTheme = styled.div`
-  text-align: center;
-  padding: 10px;
-  width: 200px;
-  height: 50px;
-  color: var(--fontcolor_dark);
-  background-color: var(--background_dark);
-  border-color: var(--contrast_color);
-  border: solid 2px;
-`
-
-const LightTheme = styled.div`
-  text-align: center;
-  padding: 10px;
-  width: 200px;
-  height: 50px;
-  color: var(--fontcolor_light);
-  background-color: var(--background_light);
-  border-color: var(--contrast_color);
-  border: solid 2px;
+const AppWrapper = styled.div`
+  display: grid;
+  background: var(--background_dark);
+  justify-content: center;
+  width: fit-content;
 `
