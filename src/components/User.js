@@ -1,12 +1,16 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
-UserData.propTypes = {
-  personalUserData: PropTypes.arrayOf(
+const data = require('../data/data.json')
+
+const users = data
+
+User.propTypes = {
+  userData: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
-      mail: PropTypes.string.isRequired,
+      mail: PropTypes.string,
       department: PropTypes.string.isRequired,
     })
   ),
@@ -22,28 +26,28 @@ UserData.propTypes = {
   ),
 }
 
-export default function UserData({ personalUserData, skills }) {
+export default function User() {
   return (
-    <DataWrapper>
-      <UserDates>
-        <li>Name: {personalUserData[0]}</li>
-        <li>Phone: {personalUserData[1]}</li>
-        <li>Mail: {personalUserData[2]}</li>
-        <li>Department: {personalUserData[3]}</li>
-      </UserDates>
-      <SkillsList>
-        <li>{skills[0]}</li>
-        <li>{skills[1]}</li>
-        <li>{skills[2]}</li>
-        <li>{skills[3]}</li>
-        <li>{skills[4]}</li>
-        <li>{skills[5]}</li>
-      </SkillsList>
-    </DataWrapper>
+    <Wrapper>
+      {users.map(({ id, name, phone, email, department, skills }, index) => (
+        <Details>
+          <li key={index}>{id}</li>
+          <li>Name: {name}</li>
+          <li>Phone: {phone}</li>
+          <li>Mail: {email}</li>
+          <li>Department: {department}</li>
+          <SkillsList>
+            {skills.map((skill, index) => (
+              <div key={index}>{skill}</div>
+            ))}
+          </SkillsList>
+        </Details>
+      ))}
+    </Wrapper>
   )
 }
 
-const DataWrapper = styled.div`
+const Wrapper = styled.div`
   display: grid;
   width: max-content;
   gap: 20px;
@@ -52,13 +56,13 @@ const DataWrapper = styled.div`
   color: var(--fontcolor_light);
 `
 
-const UserDates = styled.ul`
+const Details = styled.ul`
   display: grid;
   gap: 10px;
   list-style-type: none;
 `
 
-const SkillsList = styled.ul`
+const SkillsList = styled.li`
   display: flex;
   gap: 10px;
   list-style-type: none;

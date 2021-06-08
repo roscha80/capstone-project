@@ -1,10 +1,10 @@
-import UserDataPage from './pages/UserDataPage'
+import UsersPage from './pages/UsersPage'
 import styled from 'styled-components/macro'
 
 function App() {
   return (
     <AppWrapper>
-      <UserDataPage />
+      <UsersPage />
     </AppWrapper>
   )
 }
