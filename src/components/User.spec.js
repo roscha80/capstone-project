@@ -14,6 +14,6 @@ describe('User', () => {
       />
     )
     const listItems = screen.getAllByRole('listitem')
-    expect(listItems).toHaveLength(7)
+    expect(listItems).toHaveLength(6)
   })
 })

@@ -44,7 +44,7 @@ const Details = styled.div`
   list-style-type: none;
 `
 
-const SkillsList = styled.li`
+const SkillsList = styled.ul`
   display: flex;
   gap: 10px;
   list-style-type: none;

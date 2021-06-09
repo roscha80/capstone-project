@@ -33,6 +33,6 @@ describe('UserPage', () => {
       />
     )
     const listItems = screen.getAllByRole('list')
-    expect(listItems).toHaveLength(2)
+    expect(listItems).toHaveLength(4)
   })
 })
