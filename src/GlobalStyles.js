@@ -11,7 +11,9 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 112.5%;
   height: 100vh;
-  width: 100vh;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  align-items: center;
 }
 input,
 button,

@@ -8,6 +8,10 @@ const Template = args => <User {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  userData: ['John Doe', '012345', 'a@b.de', 'Office'],
-  skills: ['SKILL1', 'SKILL2', 'SKILL3', 'SKILL4', 'SKILL5', 'SKILL6'],
+  id: '1',
+  name: 'Rob',
+  phone: '123',
+  mail: 'a@b.de',
+  department: 'office',
+  skills: ['HTML', 'CSS', 'JavaScript', 'Adobe CS', 'Paint', 'IOS'],
 }

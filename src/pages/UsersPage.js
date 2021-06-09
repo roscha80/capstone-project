@@ -1,21 +1,33 @@
 import styled from 'styled-components/macro'
 import User from '../components/User'
+import PropTypes from 'prop-types'
 
-const data = require('../data/data.json')
+UsersPage.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      mail: PropTypes.string.isRequired,
+      department: PropTypes.string.isRequired,
+      skills: PropTypes.arrayOf(PropTypes.string),
+    })
+  ),
+}
 
-const users = data
-
-export default function UsersPage() {
+export default function UsersPage({ users }) {
   return (
     <Wrapper>
-      {users.map(({ name, phone, email, department }) => (
-        <SingleEntry key={name}>
+      {users.map(({ id, name, phone, email, department, skills }) => (
+        <SingleEntry key={id}>
           <User
+            key={id}
+            id={id}
             name={name}
             phone={phone}
             mail={email}
             department={department}
-            skills={[]}
+            skills={skills}
           />
         </SingleEntry>
       ))}
@@ -23,13 +35,13 @@ export default function UsersPage() {
   )
 }
 
-const Wrapper = styled.ul`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style-type: none;
-  align-items: center;
+  max-width: min-content;
 `
-const SingleEntry = styled.li`
+const SingleEntry = styled.ul`
   padding: 10px;
 `

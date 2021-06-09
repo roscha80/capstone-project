@@ -1,14 +1,19 @@
 import { render, screen } from '@testing-library/react'
 import User from './User'
 
-const data = require('../data/data.json')
-
-const users = data
-
 describe('User', () => {
   it('renders a list with personal data and skills', () => {
-    render(<User userData={users.map(user => user)} />)
+    render(
+      <User
+        id={'1'}
+        name={'Rob'}
+        phone={'123'}
+        mail={'a@b.de'}
+        department={'office'}
+        skills={['HTML', 'CSS', 'JavaScript', 'Adobe CS', 'Paint', 'IOS']}
+      />
+    )
     const listItems = screen.getAllByRole('listitem')
-    expect(listItems).toHaveLength(18)
+    expect(listItems).toHaveLength(7)
   })
 })

@@ -1,26 +1,39 @@
-[
-  {
-    "id": "1",
-    "name": "John Test",
-    "phone": "11111",
-    "email": "mail@mail.de",
-    "department": "Remote",
-    "skills": ["skill1", "skill2", "skill3", "skill4", "skill5", "skill6"]
-  },
-  {
-    "id": "2",
-    "name": "Jane Johnson",
-    "phone": "222222222",
-    "email": "Jane@mail.com",
-    "department": "Office",
-    "skills": ["skill1", "skill2", "skill3", "skill4", "skill5", "skill6"]
-  },
-  {
-    "id": "3",
-    "name": "Peter John Parker",
-    "phone": "2323232323",
-    "email": "peter@mail.de",
-    "department": "Sales",
-    "skills": ["skill1", "skill2", "skill3", "skill4"]
-  }
-]
+{
+  "userData": [
+    {
+      "id": "1",
+      "name": "John Test",
+      "phone": "11111",
+      "email": "mail@mail.de",
+      "department": "Remote",
+      "skills": ["skill1", "skill2", "skill3", "skill4", "skill5", "skill6"]
+    },
+
+    {
+      "id": "2",
+      "name": "Jane Johnson",
+      "phone": "222222222",
+      "email": "Jane@mail.com",
+      "department": "Office",
+      "skills": ["skill1", "skill2", "skill3", "skill4", "skill5", "skill6"]
+    },
+
+    {
+      "id": "3",
+      "name": "Peter John Parker",
+      "phone": "2323232323",
+      "email": "peter@mail.de",
+      "department": "Sales",
+      "skills": ["skill1", "skill2", "skill3", "skill4"]
+    },
+
+    {
+      "id": "4",
+      "name": "Rob Schade",
+      "phone": "0172/xxxxxxx",
+      "email": "roscha80@web.de",
+      "department": "IT",
+      "skills": ["HTML", "CSS", "JavaScript", "Adobe CS"]
+    }
+  ]
+}
