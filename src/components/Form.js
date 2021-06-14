@@ -3,18 +3,35 @@ import PropTypes from 'prop-types'
 import InputField from './InputField'
 import Button from './Button'
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import React from 'react'
 
 Form.propTypes = {
   onSubmit: PropTypes.func,
 }
 
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  phone: yup.number().positive().integer().required(),
+  email: yup.string().required(),
+  department: yup.string().required(),
+  skill1: yup.string().required(),
+  skill2: yup.string(),
+  skill3: yup.string(),
+  skill4: yup.string(),
+  skill5: yup.string(),
+  skill6: yup.string(),
+})
+
 export default function Form({ onSubmit }) {
+  const ref = useRef(null)
   const {
     register,
     formState: { errors },
-  } = useForm()
-  const [isActive, setIsActive] = useState()
+  } = useForm({ resolver: yupResolver(schema) })
+  const [isDisabled, setIsDisabled] = useState(true)
 
   return (
     <StyledForm
@@ -22,6 +39,7 @@ export default function Form({ onSubmit }) {
       onChange={validateForm}
       aria-label="create a new user"
       role="form"
+      ref={ref}
     >
       <InputField
         label="name:"
@@ -31,8 +49,8 @@ export default function Form({ onSubmit }) {
           maxLength: 20,
           pattern: /^[A-Za-z]+$/i,
         })}
-        {...(errors.name && <p>Please fill in your name</p>)}
       />
+      {errors.name && 'Name is required'}
       <InputField
         label="phone:"
         role="input"
@@ -40,8 +58,10 @@ export default function Form({ onSubmit }) {
           required: true,
           min: 11,
           max: 18,
+          patter: /^[0-9]+$/,
         })}
       />
+      {errors.phone && 'Phone is required'}
       <InputField
         label="email:"
         role="input"
@@ -50,6 +70,7 @@ export default function Form({ onSubmit }) {
           pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         })}
       />
+      {errors.email && 'Email is required'}
       <InputField
         label="department:"
         role="input"
@@ -59,6 +80,7 @@ export default function Form({ onSubmit }) {
           pattern: /^[A-Za-z]+$/i,
         })}
       />
+      {errors.department && 'Department is required'}
       <InputField
         label="skill1:"
         role="input"
@@ -68,6 +90,7 @@ export default function Form({ onSubmit }) {
           pattern: /^[A-Za-z]+$/i,
         })}
       />
+      {errors.skill1 && 'At least one skill is required'}
       <InputField
         label="skill:"
         role="input"
@@ -108,23 +131,24 @@ export default function Form({ onSubmit }) {
           pattern: /^[A-Za-z]+$/i,
         })}
       />
-      <Button disabled={isActive} type="submit" children="Create User" />
+      <Button disabled={isDisabled} type="submit" children="Create User" />
     </StyledForm>
   )
 
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const name = form.elements.name.value
-    const phone = form.elements.phone.value
-    const email = form.elements.email.value
-    const department = form.elements.department.value
-    const skill1 = form.elements.skill1.value
-    const skill2 = form.elements.skill2.value
-    const skill3 = form.elements.skill3.value
-    const skill4 = form.elements.skill4.value
-    const skill5 = form.elements.skill5.value
-    const skill6 = form.elements.skill6.value
+    const inputs = form.elements
+    const name = inputs.name.value
+    const phone = inputs.phone.value
+    const email = inputs.email.value
+    const department = inputs.department.value
+    const skill1 = inputs.skill1.value
+    const skill2 = inputs.skill2.value
+    const skill3 = inputs.skill3.value
+    const skill4 = inputs.skill4.value
+    const skill5 = inputs.skill5.value
+    const skill6 = inputs.skill6.value
     const skills = [skill1, skill2, skill3, skill4, skill5, skill6]
 
     const newUser = { name, phone, email, department, skills }
@@ -133,7 +157,7 @@ export default function Form({ onSubmit }) {
 
     form.reset()
     event.target.elements.name.focus()
-    setIsActive(false)
+    setIsDisabled(false)
   }
 
   function validateForm(event) {
@@ -143,7 +167,7 @@ export default function Form({ onSubmit }) {
     const inputEmail = form.elements.email.value.trim()
     const inputDepartment = form.elements.department.value.trim()
     const inputSkill1 = form.elements.skill1.value.trim()
-    setIsActive(
+    setIsDisabled(
       inputName && inputPhone && inputEmail && inputDepartment && inputSkill1
         ? false
         : true

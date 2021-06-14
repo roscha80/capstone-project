@@ -23,7 +23,6 @@ export default function UsersPage({ users, goToCreatepage }) {
       {users.map(({ index, name, phone, email, department, skills }) => (
         <SingleEntry key={index}>
           <User
-            key={index}
             name={name}
             phone={phone}
             mail={email}

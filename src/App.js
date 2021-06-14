@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import { userData } from './data/data.json'
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import { useState } from 'react'
