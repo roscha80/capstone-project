@@ -50,6 +50,7 @@ export default function Form({ onSubmit }) {
           required: true,
           min: 11,
           max: 18,
+          // eslint-disable-next-line no-control-regex
           patter: /^[0-9]+$/,
         })}
       />
