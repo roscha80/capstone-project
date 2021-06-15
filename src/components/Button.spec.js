@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event'
 import Button from './Button'
 
 describe('Button', () => {
-  it('contains a text', async () => {
+  it('contains a text', () => {
     render(<Button onClick={jest.fn()}>Click me</Button>)
     const button = screen.getByRole('button', { name: 'Click me' })
     expect(button).toBeInTheDocument()
   })
-  it('calls onClick correctly', async () => {
+  it('calls onClick correctly', () => {
     const handleClick = jest.fn()
     render(<Button onClick={handleClick}>Click me</Button>)
     const button = screen.getByRole('button', { name: 'Click me' })

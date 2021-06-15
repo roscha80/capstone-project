@@ -20,8 +20,8 @@ export default function UsersPage({ users, goToCreatepage }) {
   return (
     <Wrapper>
       <Button children={'Create new user'} onClick={goToCreatepage} />
-      {users.map(({ index, name, phone, email, department, skills }) => (
-        <SingleEntry key={index}>
+      {users.map(({ id, name, phone, email, department, skills }) => (
+        <SingleEntry key={id}>
           <User
             name={name}
             phone={phone}

@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import { useState } from 'react'
-import useLocalStorage from './sort/useLocalStorage'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
   const [users, setUsers] = useLocalStorage('users', [])
@@ -10,21 +10,20 @@ function App() {
   return (
     <AppWrapper>
       {currentPage === 'createPage' && (
-        <CreatePage onGoBack={handleGoBack} onSubmit={handleCreatePage} />
+        <CreatePage
+          onGoBack={() => setCurrentPage('usersPage')}
+          onSubmit={handleCreatePage}
+        />
       )}
       {currentPage === 'usersPage' && (
-        <UsersPage users={users} goToCreatepage={handleGoToCreatePage} />
+        <UsersPage
+          users={users}
+          goToCreatepage={() => setCurrentPage('createPage')}
+        />
       )}
-      {/* <CreatePage />
-      <UsersPage users={userData} /> */}
     </AppWrapper>
   )
-  function handleGoBack() {
-    setCurrentPage('usersPage')
-  }
-  function handleGoToCreatePage() {
-    setCurrentPage('createPage')
-  }
+
   function handleCreatePage(newUser) {
     setUsers([newUser, ...users])
   }
