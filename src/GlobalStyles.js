@@ -27,6 +27,7 @@ textarea {
   --fontcolor_light: #2B7A78;
   --fontcolor_dark: #DEF2F1;
   --contrast_color: #17252a;
+  --active: #6bcfd1;
 }
 
 
