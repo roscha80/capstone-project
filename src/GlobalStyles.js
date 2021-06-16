@@ -10,9 +10,12 @@ const GlobalStyles = createGlobalStyle`
 body {
   font-family: 'Oswald', sans-serif;
   font-size: 112.5%;
-  height: 100vh;
-  max-width: 100%;
+  height: 90vh;
+  width: 100%;
+  max-width: 450px;
   overflow-x: hidden !important;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 input,
