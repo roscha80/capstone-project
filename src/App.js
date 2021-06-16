@@ -3,12 +3,14 @@ import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import { useState } from 'react'
 import useLocalStorage from './hooks/useLocalStorage'
+import Header from './components/Header'
 
 function App() {
   const [users, setUsers] = useLocalStorage('users', [])
   const [currentPage, setCurrentPage] = useState('createPage')
   return (
     <AppWrapper>
+      <Header children={currentPage} />
       {currentPage === 'createPage' && (
         <CreatePage
           onGoBack={() => setCurrentPage('usersPage')}
@@ -33,4 +35,5 @@ export default App
 
 const AppWrapper = styled.div`
   background: var(--background_dark);
+  overflow-y: auto;
 `
