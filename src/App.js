@@ -10,7 +10,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('createPage')
   return (
     <AppWrapper>
-      <Header children={currentPage} />
+      <Header>{currentPage}</Header>
       {currentPage === 'createPage' && (
         <CreatePage
           onGoBack={() => setCurrentPage('usersPage')}
