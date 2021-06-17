@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
 import User from '../components/User'
 import PropTypes from 'prop-types'
-import Button from '../components/Button'
 
 UsersPage.propTypes = {
   users: PropTypes.arrayOf(
@@ -16,10 +15,9 @@ UsersPage.propTypes = {
   ),
 }
 
-export default function UsersPage({ users, goToCreatepage }) {
+export default function UsersPage({ users }) {
   return (
     <Wrapper>
-      <Button children={'Create new user'} onClick={goToCreatepage} />
       {users.map(({ id, name, phone, email, department, skills }) => (
         <SingleEntry key={id}>
           <User

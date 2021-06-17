@@ -37,6 +37,7 @@ export default function Form({ onSubmit }) {
     >
       <InputField
         labelText="name:"
+        placeholder="Please enter your name..."
         {...register('name', {
           required: true,
           maxLength: 20,
@@ -46,6 +47,7 @@ export default function Form({ onSubmit }) {
       {errors.name && <Error>Name is required</Error>}
       <InputField
         labelText="phone:"
+        placeholder="Please enter your phone..."
         {...register('phone', {
           required: true,
           min: 11,
@@ -57,6 +59,7 @@ export default function Form({ onSubmit }) {
       {errors.phone && <Error>Phone is required</Error>}
       <InputField
         labelText="email:"
+        placeholder="Please enter your email..."
         {...register('email', {
           required: true,
           pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -65,6 +68,7 @@ export default function Form({ onSubmit }) {
       {errors.email && <Error>Email is required</Error>}
       <InputField
         labelText="department:"
+        placeholder="Please enter your department..."
         {...register('department', {
           required: true,
           maxLength: 20,
@@ -74,6 +78,7 @@ export default function Form({ onSubmit }) {
       {errors.department && 'Department is required'}
       <InputField
         labelText="skills:"
+        placeholder="Please enter your skills..."
         {...register('skills', {
           required: true,
           pattern: /^[A-Za-z]+$/i,

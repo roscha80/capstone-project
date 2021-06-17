@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: var(----background_dark);
   
 }
 body {
@@ -15,6 +16,7 @@ body {
   max-width: 450px;
   overflow-x: hidden !important;
   align-items: center;
+  background-color: var(----background_dark);
 }
 input,
 button,

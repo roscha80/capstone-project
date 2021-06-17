@@ -1,14 +1,11 @@
 import styled from 'styled-components/macro'
-import Button from '../components/Button'
 import Form from '../components/Form'
 import React from 'react'
 
-export default function CreatePage({ onGoBack, onSubmit, onChange }) {
-  const ref = React.forwardRef()
+export default function CreatePage({ onSubmit, onChange }) {
   return (
     <Wrapper>
-      <Button children={'Back'} onClick={onGoBack} />
-      <Form onSubmit={onSubmit} onChange={onChange} ref={ref} />
+      <Form onSubmit={onSubmit} onChange={onChange} />
     </Wrapper>
   )
 }
@@ -19,5 +16,4 @@ const Wrapper = styled.section`
   gap: 3px;
   list-style-type: none;
   max-width: min-content;
-  max-height: 100%;
 `
