@@ -47,7 +47,7 @@ export default function Form({ onSubmit }) {
       {errors.name && <Error>Name is required</Error>}
       <InputField
         labelText="phone:"
-        placeholder="Please enter your phone..."
+        placeholder="Please enter your phone number..."
         {...register('phone', {
           required: true,
           min: 11,
