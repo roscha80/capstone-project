@@ -15,7 +15,7 @@ function App() {
   return (
     <AppWrapper>
       <Switch>
-        <Route path="/home" exact component={HomePage}>
+        <Route path="/" exact component={HomePage}>
           <HomePage title="Home" />
         </Route>
         <Route path="/createPage" component={CreatePage}>
@@ -32,7 +32,7 @@ function App() {
       <Route paths={['/', 'createPage', 'usersPage']}>
         <NavBar
           pages={[
-            { title: 'Home', id: '/home' },
+            { title: 'Home', id: '/' },
             { title: 'Create a new user', id: 'createPage' },
             { title: 'Users', id: 'usersPage' },
           ]}
