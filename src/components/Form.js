@@ -128,6 +128,8 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-top: 80px;
+  background: var(--background_dark);
 `
 
 const Error = styled.div`

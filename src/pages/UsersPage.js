@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import User from '../components/User'
 import PropTypes from 'prop-types'
+import Header from '../components/Header'
 
 UsersPage.propTypes = {
   users: PropTypes.arrayOf(
@@ -15,9 +16,10 @@ UsersPage.propTypes = {
   ),
 }
 
-export default function UsersPage({ users }) {
+export default function UsersPage({ users, title }) {
   return (
     <Wrapper>
+      <Header>{title}</Header>
       {users.map(({ id, name, phone, email, department, skills }) => (
         <SingleEntry key={id}>
           <User
@@ -34,11 +36,14 @@ export default function UsersPage({ users }) {
 }
 
 const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   list-style-type: none;
-  max-width: min-content;
+  height: 100vh;
+  align-self: center;
+  background: var(--background_dark);
+  display: grid;
+  grid-auto-rows: repeat;
+  overflow-y: scroll;
+  margin-bottom: 20px;
 `
 const SingleEntry = styled.ul`
   padding: 10px;

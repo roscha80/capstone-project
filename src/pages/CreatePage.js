@@ -1,19 +1,22 @@
 import styled from 'styled-components/macro'
 import Form from '../components/Form'
 import React from 'react'
+import Header from '../components/Header'
 
-export default function CreatePage({ onSubmit, onChange }) {
+export default function CreatePage({ onSubmit, onChange, title }) {
   return (
     <Wrapper>
+      <Header>{title}</Header>
       <Form onSubmit={onSubmit} onChange={onChange} />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  display: grid;
+  gap: 10px;
   list-style-type: none;
-  max-width: min-content;
+  height: 100vh;
+  align-self: center;
+  background: var(--background_dark);
 `

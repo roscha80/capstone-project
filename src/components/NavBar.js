@@ -11,17 +11,30 @@ NavBar.propTypes = {
 
 export default function NavBar({ pages }) {
   return (
-    <Nav>
-      {pages.map(({ title, id }) => (
-        <Button exact component={NavLink} to={id} key={id}>
-          {title}
-        </Button>
-      ))}
-    </Nav>
+    <Wrapper>
+      <Nav>
+        {pages.map(({ title, id }) => (
+          <Button exact component={NavLink} to={id} key={id}>
+            {title}
+          </Button>
+        ))}
+      </Nav>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  margin-top: 10px;
+`
 
 const Nav = styled.nav`
   display: flex;
   background-color: var(--background_dark);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  justify-content: center;
+  border: solid var(--contrast_color);
+  border-width: 5px 0 0 0;
 `

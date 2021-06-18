@@ -30,17 +30,20 @@ export default function User({ id, name, phone, mail, department, skills }) {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  padding: 10px 20px;
-  background-color: var(--background_light);
   color: var(--fontcolor_light);
+  width: 100%;
+  justify-content: center;
+  div:first-child {
+    margin-top: 60px;
+    margin-bottom: -90px;
+  }
 `
 
 const Details = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  background-color: var(--background_light);
+  padding: 10px 20px;
+  width: 100%;
+  display: grid;
   list-style-type: none;
 `
 

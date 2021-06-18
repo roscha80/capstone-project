@@ -6,4 +6,7 @@ export default styled.h1`
   color: var(--fontcolor_light);
   padding: 10px;
   text-align: center;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 3px var(--contrast_color);
 `
