@@ -13,4 +13,5 @@ const Label = styled.label`
   padding: 2px;
   width: auto;
   margin: 0;
+  display: grid;
 `

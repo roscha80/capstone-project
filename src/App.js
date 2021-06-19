@@ -1,39 +1,65 @@
+import { Switch, Route, useHistory } from 'react-router-dom'
+
 import styled from 'styled-components/macro'
+import useLocalStorage from './hooks/useLocalStorage'
+
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
-import { useState } from 'react'
-import useLocalStorage from './hooks/useLocalStorage'
-import Header from './components/Header'
+import HomePage from './pages/HomePage'
+import NavBar from './components/NavBar'
 
 function App() {
   const [users, setUsers] = useLocalStorage('users', [])
-  const [currentPage, setCurrentPage] = useState('createPage')
+  const history = useHistory()
+
   return (
     <AppWrapper>
-      <Header>{currentPage}</Header>
-      {currentPage === 'createPage' && (
-        <CreatePage
-          onGoBack={() => setCurrentPage('usersPage')}
-          onSubmit={handleCreatePage}
+      <Switch>
+        <Route path="/" exact component={HomePage}>
+          <HomePage title="Home" />
+        </Route>
+        <Route path="/createPage" component={CreatePage}>
+          <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
+        </Route>
+        <Route path="/usersPage" component={UsersPage}>
+          <UsersPage
+            users={users}
+            goToCreatepage={goToCreatePage}
+            title="UsersPage"
+          />
+        </Route>
+      </Switch>
+      <Route paths={['/', 'createPage', 'usersPage']}>
+        <NavBar
+          pages={[
+            { title: 'Home', id: '/' },
+            { title: 'Create a new user', id: 'createPage' },
+            { title: 'Users', id: 'usersPage' },
+          ]}
         />
-      )}
-      {currentPage === 'usersPage' && (
-        <UsersPage
-          users={users}
-          goToCreatepage={() => setCurrentPage('createPage')}
-        />
-      )}
+      </Route>
     </AppWrapper>
   )
 
   function handleCreatePage(newUser) {
     setUsers([newUser, ...users])
+    history.push('usersPage')
+  }
+  function goToCreatePage() {
+    history.push('createPage')
   }
 }
 
 export default App
 
 const AppWrapper = styled.div`
-  background: var(--background_dark);
-  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto 60px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  overflow-y: scroll;
 `

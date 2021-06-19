@@ -1,22 +1,18 @@
 import styled from 'styled-components/macro'
-import Form from '../components/Form'
-import React from 'react'
 import Header from '../components/Header'
 
-export default function CreatePage({ onSubmit, onChange, title }) {
+export default function HomePage({ title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      <Form onSubmit={onSubmit} onChange={onChange} />
+      <h2>INSIDE JOB</h2>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   display: grid;
-  gap: 10px;
-  list-style-type: none;
+  justify-content: center;
   height: 100vh;
-  align-self: center;
   background: var(--background_dark);
 `
