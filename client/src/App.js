@@ -1,4 +1,4 @@
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Switch, Route, useHistory, useEffect } from 'react-router-dom'
 
 import styled from 'styled-components/macro'
 import useLocalStorage from './hooks/useLocalStorage'
@@ -10,7 +10,11 @@ import NavBar from './components/NavBar'
 
 function App() {
   const [users, setUsers] = useLocalStorage('users', [])
-  const history = useHistory()
+
+const useEffect(()=>{
+fetch('/api/users').then(res => res.json()).then(users =>setUsers(users))
+}, [])
+
 
   return (
     <AppWrapper>
