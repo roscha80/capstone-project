@@ -4,7 +4,11 @@
   "description": "server-for-capstone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all --parallel dev:client dev:server",
+    "dev:client": "cd client && npm start",
+    "dev:server": "nodemon server.js",
+    "test": "cd client && npm test",
+    "storybook": "cd client && npm run storybook"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,11 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.14",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.7.2",
     "nodemon": "^2.0.7"
   }
 }

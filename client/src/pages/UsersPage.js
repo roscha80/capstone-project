@@ -20,7 +20,7 @@ export default function UsersPage({ users, title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      {users.map(({ id, name, phone, email, department, skills }) => (
+      {users.map(({ skills, id, name, phone, email, department }) => (
         <SingleEntry key={id}>
           <User
             name={name}

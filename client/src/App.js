@@ -1,7 +1,7 @@
-import { Switch, Route, useHistory, useEffect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 import styled from 'styled-components/macro'
-import useLocalStorage from './hooks/useLocalStorage'
 
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
@@ -9,12 +9,13 @@ import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 
 function App() {
-  const [users, setUsers] = useLocalStorage('users', [])
+  const [users, setUsers] = useState([])
 
-const useEffect(()=>{
-fetch('/api/users').then(res => res.json()).then(users =>setUsers(users))
-}, [])
-
+  useEffect(() => {
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(users => setUsers(users))
+  }, [])
 
   return (
     <AppWrapper>
@@ -47,10 +48,10 @@ fetch('/api/users').then(res => res.json()).then(users =>setUsers(users))
 
   function handleCreatePage(newUser) {
     setUsers([newUser, ...users])
-    history.push('usersPage')
+    // history.push('usersPage')
   }
   function goToCreatePage() {
-    history.push('createPage')
+    // history.push('createPage')
   }
 }
 
