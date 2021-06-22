@@ -46,13 +46,8 @@ function App() {
     </AppWrapper>
   )
 
-  function handleCreatePage(newUser) {
-    setUsers([newUser, ...users])
-    // history.push('usersPage')
-  }
-  function goToCreatePage() {
-    // history.push('createPage')
-  }
+  function handleCreatePage(newUser) {}
+  function goToCreatePage() {}
 }
 
 export default App
