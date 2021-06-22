@@ -15,6 +15,7 @@ function App() {
     fetch('/api/users')
       .then(res => res.json())
       .then(users => setUsers(users))
+      .catch(error => console.error(error))
   }, [])
 
   return (

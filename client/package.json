@@ -2,6 +2,7 @@
   "name": "capstone-project",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "author": "Rob Schade <roscha80@web.de>",
   "dependencies": {
     "@hookform/resolvers": "^2.5.2",
