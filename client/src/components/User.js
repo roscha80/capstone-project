@@ -33,10 +33,6 @@ const Wrapper = styled.div`
   color: var(--fontcolor_light);
   width: 100%;
   justify-content: center;
-  div:first-child {
-    margin-top: 60px;
-    margin-bottom: -90px;
-  }
 `
 
 const Details = styled.div`

@@ -11,21 +11,15 @@ NavBar.propTypes = {
 
 export default function NavBar({ pages }) {
   return (
-    <Wrapper>
-      <Nav>
-        {pages.map(({ title, id }) => (
-          <Button exact component={NavLink} to={id} key={id}>
-            {title}
-          </Button>
-        ))}
-      </Nav>
-    </Wrapper>
+    <Nav>
+      {pages.map(({ title, id }) => (
+        <Button exact component={NavLink} to={id} key={id}>
+          {title}
+        </Button>
+      ))}
+    </Nav>
   )
 }
-
-const Wrapper = styled.div`
-  margin-top: 10px;
-`
 
 const Nav = styled.nav`
   display: flex;

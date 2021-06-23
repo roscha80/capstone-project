@@ -5,14 +5,20 @@ export default function HomePage({ title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      <h2>INSIDE JOB</h2>
+      <LogoWrapper>
+        <h2>Skills</h2>
+      </LogoWrapper>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   display: grid;
-  justify-content: center;
+  grid-template-rows: 60px auto;
   height: 100vh;
   background: var(--background_dark);
+`
+const LogoWrapper = styled.div`
+  justify-self: center;
+  margin-top: 50%;
 `

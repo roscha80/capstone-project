@@ -14,7 +14,7 @@ export default function CreatePage({ onSubmit, onChange, title }) {
 
 const Wrapper = styled.section`
   display: grid;
-  gap: 10px;
+  grid-template-rows: 60px auto;
   list-style-type: none;
   height: 100vh;
   align-self: center;

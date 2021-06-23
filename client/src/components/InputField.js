@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro'
 
-export default function InputField({ labelText, ...inputProps }) {
+export default function InputField({ labelText, name, ...inputProps }) {
   return (
     <Label>
       <small>{labelText}</small>
-      <input {...inputProps} />
+      <Input name={name} {...inputProps} />
     </Label>
   )
 }
@@ -14,4 +14,12 @@ const Label = styled.label`
   width: auto;
   margin: 0;
   display: grid;
+`
+const Input = styled.input`
+  :required {
+    background-color: pink;
+  }
+  :valid {
+    background-color: palegreen;
+  }
 `

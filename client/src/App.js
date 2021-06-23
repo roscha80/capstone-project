@@ -8,6 +8,8 @@ import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 
+const axios = require('axios')
+
 function App() {
   const [users, setUsers] = useState([])
 
@@ -21,18 +23,14 @@ function App() {
   return (
     <AppWrapper>
       <Switch>
-        <Route path="/" exact component={HomePage}>
+        <Route path="/" exact>
           <HomePage title="Home" />
         </Route>
-        <Route path="/createPage" component={CreatePage}>
+        <Route path="/createPage">
           <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
         </Route>
-        <Route path="/usersPage" component={UsersPage}>
-          <UsersPage
-            users={users}
-            goToCreatepage={goToCreatePage}
-            title="UsersPage"
-          />
+        <Route path="/usersPage">
+          <UsersPage users={users} title="UsersPage" />
         </Route>
       </Switch>
       <Route paths={['/', 'createPage', 'usersPage']}>
@@ -47,8 +45,21 @@ function App() {
     </AppWrapper>
   )
 
-  function handleCreatePage(newUser) {}
-  function goToCreatePage() {}
+  function handleCreatePage(user) {
+    axios.defaults = {
+      proxy: {
+        protocol: 'http',
+        host: 'localhost',
+        port: 4000,
+      },
+    }
+    axios
+      .post('/api/users', user)
+      .then(res => setUsers([...users, res.data]))
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 }
 
 export default App

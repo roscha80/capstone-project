@@ -20,30 +20,32 @@ export default function UsersPage({ users, title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      {users.map(({ skills, id, name, phone, email, department }) => (
-        <SingleEntry key={id}>
-          <User
-            name={name}
-            phone={phone}
-            mail={email}
-            department={department}
-            skills={skills}
-          />
-        </SingleEntry>
-      ))}
+      <ListWrapper>
+        {users.map(({ id, skills, name, phone, email, department }) => (
+          <SingleEntry key={id}>
+            <User
+              name={name}
+              phone={phone}
+              mail={email}
+              department={department}
+              skills={skills}
+            />
+          </SingleEntry>
+        ))}
+      </ListWrapper>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   list-style-type: none;
-  height: 100vh;
-  align-self: center;
   background: var(--background_dark);
   display: grid;
-  grid-auto-rows: repeat;
   overflow-y: scroll;
-  margin-bottom: 20px;
+`
+const ListWrapper = styled.div`
+  height: max-content;
+  padding-bottom: 10px;
 `
 const SingleEntry = styled.ul`
   padding: 10px;
