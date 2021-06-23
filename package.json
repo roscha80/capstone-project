@@ -8,7 +8,9 @@
     "dev:client": "cd client && npm start",
     "dev:server": "nodemon server.js",
     "test": "cd client && npm test",
-    "storybook": "cd client && npm run storybook"
+    "storybook": "cd client && npm run storybook",
+    "build": "cd client && npm run build",
+    "postinstall": "cd client && npm install"
   },
   "repository": {
     "type": "git",
