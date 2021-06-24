@@ -1,5 +1,5 @@
 {
-  "name": "capstone-server",
+  "name": "skills-server",
   "version": "1.0.0",
   "description": "server-for-capstone",
   "main": "index.js",
