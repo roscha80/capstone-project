@@ -17,7 +17,7 @@ const Label = styled.label`
 `
 const Input = styled.input`
   :required {
-    background-color: pink;
+    background-color: var(--highlight);
   }
   :valid {
     background-color: palegreen;

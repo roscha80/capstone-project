@@ -9,7 +9,7 @@
     "dev:server": "nodemon server.js",
     "test": "cd client && npm test",
     "storybook": "cd client && npm run storybook",
-    "build": "cd client && npm run build",
+    "build": "npm install --prefix client && npm run build --prefix client",
     "postinstall": "cd client && npm install"
   },
   "repository": {
