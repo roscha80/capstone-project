@@ -1,15 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config()
+const { REACT_APP_DB_URL } = process.env
 
 mongoose
-  .connect(
-    'mongodb+srv://dbUser:dbPassword040@skills040.iv3rg.mongodb.net/skills040?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }
-  )
+  .connect(REACT_APP_DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log('Connected to MongoDB (Skills)'))
   .catch(console.error)
 

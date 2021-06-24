@@ -9,7 +9,7 @@ UsersPage.propTypes = {
       id: PropTypes.string,
       name: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
-      mail: PropTypes.string.isRequired,
+      mail: PropTypes.string,
       department: PropTypes.string.isRequired,
       skills: PropTypes.arrayOf(PropTypes.string),
     })
@@ -43,10 +43,10 @@ const Wrapper = styled.section`
   display: grid;
   overflow-y: scroll;
 `
-const ListWrapper = styled.div`
+const ListWrapper = styled.ul`
   height: max-content;
   padding-bottom: 10px;
 `
-const SingleEntry = styled.ul`
+const SingleEntry = styled.li`
   padding: 10px;
 `

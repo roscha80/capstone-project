@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 import { useState } from 'react'
 
 Form.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 }
 
 export default function Form({ onSubmit }) {
@@ -20,11 +20,12 @@ export default function Form({ onSubmit }) {
     >
       <InputField
         name="name"
-        labelText="name:"
-        placeholder="Please enter your name..."
+        labelText="full name:"
+        placeholder="Please enter your full name..."
         maxLength="40"
         minLength="5"
         required
+        autoComplete="off"
       />
       <InputField
         name="phone"
@@ -32,6 +33,7 @@ export default function Form({ onSubmit }) {
         placeholder="Please enter your phone number..."
         minLength="8"
         required
+        autoComplete="off"
       />
       <InputField
         name="email"
@@ -40,18 +42,21 @@ export default function Form({ onSubmit }) {
         placeholder="Please enter your email..."
         required
         pattern="^(.+)@(.+)$"
+        autoComplete="off"
       />
       <InputField
         name="department"
         labelText="department:"
         placeholder="Please enter your department..."
         required
+        autoComplete="off"
       />
       <InputField
         name="skills"
         labelText="skills:"
-        placeholder="Please enter your skills..."
+        placeholder="Please enter your skills separated by comma..."
         required
+        autoComplete="off"
       />
 
       <Button disabled={isDisabled} type="submit" children="Create User" />
@@ -73,7 +78,7 @@ export default function Form({ onSubmit }) {
     onSubmit(newUser)
 
     form.reset()
-    event.target.elements.name.focus()
+    inputs.name.focus()
     setIsDisabled(true)
   }
 

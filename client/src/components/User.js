@@ -29,7 +29,7 @@ export default function User({ id, name, phone, mail, department, skills }) {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   color: var(--fontcolor_light);
   width: 100%;
   justify-content: center;

@@ -46,19 +46,10 @@ function App() {
   )
 
   function handleCreatePage(user) {
-    axios.defaults = {
-      proxy: {
-        protocol: 'http',
-        host: 'localhost',
-        port: 4000,
-      },
-    }
     axios
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
-      .catch(function (error) {
-        console.log(error)
-      })
+      .catch(error => console.log(error))
   }
 }
 
