@@ -9,7 +9,7 @@ UsersPage.propTypes = {
       id: PropTypes.string,
       name: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
-      mail: PropTypes.string.isRequired,
+      mail: PropTypes.string,
       department: PropTypes.string.isRequired,
       skills: PropTypes.arrayOf(PropTypes.string),
     })
@@ -20,31 +20,33 @@ export default function UsersPage({ users, title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      {users.map(({ id, name, phone, email, department, skills }) => (
-        <SingleEntry key={id}>
-          <User
-            name={name}
-            phone={phone}
-            mail={email}
-            department={department}
-            skills={skills}
-          />
-        </SingleEntry>
-      ))}
+      <ListWrapper>
+        {users.map(({ id, skills, name, phone, email, department }) => (
+          <SingleEntry key={id}>
+            <User
+              name={name}
+              phone={phone}
+              mail={email}
+              department={department}
+              skills={skills}
+            />
+          </SingleEntry>
+        ))}
+      </ListWrapper>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   list-style-type: none;
-  height: 100vh;
-  align-self: center;
   background: var(--background_dark);
   display: grid;
-  grid-auto-rows: repeat;
   overflow-y: scroll;
-  margin-bottom: 20px;
 `
-const SingleEntry = styled.ul`
+const ListWrapper = styled.ul`
+  height: max-content;
+  padding-bottom: 10px;
+`
+const SingleEntry = styled.li`
   padding: 10px;
 `

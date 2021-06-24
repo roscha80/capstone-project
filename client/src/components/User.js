@@ -29,14 +29,10 @@ export default function User({ id, name, phone, mail, department, skills }) {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   color: var(--fontcolor_light);
   width: 100%;
   justify-content: center;
-  div:first-child {
-    margin-top: 60px;
-    margin-bottom: -90px;
-  }
 `
 
 const Details = styled.div`

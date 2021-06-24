@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
   --fontcolor_dark: #DEF2F1;
   --contrast_color: #17252a;
   --active: #6bcfd1;
+  --highlight: #FFC0CB;
 }
   
 }

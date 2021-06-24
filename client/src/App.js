@@ -1,32 +1,36 @@
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 import styled from 'styled-components/macro'
-import useLocalStorage from './hooks/useLocalStorage'
 
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 
+const axios = require('axios')
+
 function App() {
-  const [users, setUsers] = useLocalStorage('users', [])
-  const history = useHistory()
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(users => setUsers(users))
+      .catch(error => console.error(error))
+  }, [])
 
   return (
     <AppWrapper>
       <Switch>
-        <Route path="/" exact component={HomePage}>
+        <Route path="/" exact>
           <HomePage title="Home" />
         </Route>
-        <Route path="/createPage" component={CreatePage}>
+        <Route path="/createPage">
           <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
         </Route>
-        <Route path="/usersPage" component={UsersPage}>
-          <UsersPage
-            users={users}
-            goToCreatepage={goToCreatePage}
-            title="UsersPage"
-          />
+        <Route path="/usersPage">
+          <UsersPage users={users} title="UsersPage" />
         </Route>
       </Switch>
       <Route paths={['/', 'createPage', 'usersPage']}>
@@ -41,12 +45,11 @@ function App() {
     </AppWrapper>
   )
 
-  function handleCreatePage(newUser) {
-    setUsers([newUser, ...users])
-    history.push('usersPage')
-  }
-  function goToCreatePage() {
-    history.push('createPage')
+  function handleCreatePage(user) {
+    axios
+      .post('/api/users', user)
+      .then(res => setUsers([...users, res.data]))
+      .catch(error => console.log(error))
   }
 }
 

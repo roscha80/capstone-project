@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:4000
+
+### GET all users
+GET {{baseUrl}}/api/users
+
+### GET a single user
+GET {{baseUrl}}/api/users/0
+
+## GET a non existing user (404)
+GET {{baseUrl}}/api/users/2000
+
+### POSt a new user
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+    "name": "Jerry",
+    "phone": "0123456777",
+    "email": "email@mail.de",
+    "department": "Office",
+    "skills": ["skill1", "skill2", "skill3"]
+}
+
+### DELETE a user
+DELETE {{baseUrl}}/api/users/60d1f348e2b899cd9eb8b39f

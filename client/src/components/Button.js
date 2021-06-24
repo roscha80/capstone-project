@@ -25,7 +25,7 @@ const ButtonStyled = styled.button`
   text-decoration: none;
   text-align: center;
   &:hover {
-    background: pink;
+    background: var(--highlight);
   }
   &[disabled] {
     opacity: 0.6;

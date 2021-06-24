@@ -7,6 +7,7 @@ export default styled.h1`
   padding: 10px;
   text-align: center;
   width: 100%;
-  position: fixed;
+  position: sticky;
+  top: 0;
   box-shadow: 0 3px var(--contrast_color);
 `
