@@ -10,4 +10,5 @@ export default styled.h1`
   position: sticky;
   top: 0;
   box-shadow: 0 3px var(--contrast_color);
+  z-index: 1;
 `

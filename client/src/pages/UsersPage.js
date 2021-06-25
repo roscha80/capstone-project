@@ -16,7 +16,7 @@ UsersPage.propTypes = {
   ),
 }
 
-export default function UsersPage({ users, title }) {
+export default function UsersPage({ users, title, deleteUser }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
@@ -29,6 +29,7 @@ export default function UsersPage({ users, title }) {
               mail={email}
               department={department}
               skills={skills}
+              onClick={deleteUser}
             />
           </SingleEntry>
         ))}

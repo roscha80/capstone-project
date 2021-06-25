@@ -5,7 +5,6 @@ const userSchema = {
   phone: { type: String, required: true },
   email: { type: String, match: /.+@\w{2,}\.\w{2,}/i },
   department: { type: String, required: true },
-  skills: { type: [String], required: true },
   skills: { type: Array, required: true },
 }
 

@@ -14,7 +14,7 @@ export default function Form({ onSubmit, onNavigate }) {
 
   return (
     <StyledForm
-      onSubmit={(handleSubmit, onNavigate)}
+      onSubmit={handleSubmit}
       onChange={validateForm}
       aria-label="create a new user"
       role="form"
@@ -60,7 +60,12 @@ export default function Form({ onSubmit, onNavigate }) {
         autoComplete="off"
       />
 
-      <Button disabled={isDisabled} type="submit" children="Create User" />
+      <Button
+        disabled={isDisabled}
+        type="submit"
+        children="Create User"
+        onClick={onNavigate}
+      />
     </StyledForm>
   )
 

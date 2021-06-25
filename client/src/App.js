@@ -30,7 +30,7 @@ function App() {
         <Route path="/createPage">
           <CreatePage
             onSubmit={handleCreatePage}
-            onNavigate={goToUsersPage}
+            onClick={goToUsersPage}
             title="CreatePage"
           />
         </Route>

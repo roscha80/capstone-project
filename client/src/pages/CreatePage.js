@@ -3,11 +3,11 @@ import Form from '../components/Form'
 import React from 'react'
 import Header from '../components/Header'
 
-export default function CreatePage({ onSubmit, onChange, onNavigate, title }) {
+export default function CreatePage({ onSubmit, onChange, title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
-      <Form onSubmit={onSubmit} onChange={onChange} onNavigate={onNavigate} />
+      <Form onSubmit={onSubmit} onChange={onChange} />
     </Wrapper>
   )
 }
