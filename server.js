@@ -16,12 +16,12 @@ const app = express()
 
 app.use('/', express.json())
 app.use('/api/users', require('./routes/users'))
-
 app.use(express.static('client/build'))
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'))
 })
+
 app.use((req, res) => res.sendStatus(404))
 
 app.use(require('./routes/error'))

@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### DELETE a user
-DELETE {{baseUrl}}/api/users/60d1f348e2b899cd9eb8b39f
+DELETE {{baseUrl}}/api/users/60d0a58969fff1203fe7eefb

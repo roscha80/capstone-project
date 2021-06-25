@@ -21,6 +21,8 @@ function App() {
       .catch(error => console.error(error))
   }, [])
 
+  console.log(users)
+
   return (
     <AppWrapper>
       <Switch>
@@ -28,14 +30,14 @@ function App() {
           <HomePage title="Home" />
         </Route>
         <Route path="/createPage">
-          <CreatePage
-            onSubmit={handleCreatePage}
-            onClick={goToUsersPage}
-            title="CreatePage"
-          />
+          <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
         </Route>
         <Route path="/usersPage">
-          <UsersPage users={users} title="UsersPage" />
+          <UsersPage
+            users={users}
+            deleteUser={handleDeleteUser}
+            title="UsersPage"
+          />
         </Route>
       </Switch>
       <Route paths={['/', 'createPage', 'usersPage']}>
@@ -55,10 +57,21 @@ function App() {
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
       .catch(error => console.log(error))
+    history.push('usersPage')
   }
 
-  function goToUsersPage() {
-    history.push('usersPage')
+  function handleDeleteUser(id) {
+    const updatedUsers = users.filter(user => user._id !== id)
+    setUsers(updatedUsers)
+
+    axios
+      .delete(`/api/users/${id}`)
+      .then(res =>
+        fetch('/api/users')
+          .then(res => res.json())
+          .then(users => setUsers(users))
+      )
+      .catch(error => console.log(error))
   }
 }
 

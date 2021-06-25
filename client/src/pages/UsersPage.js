@@ -21,15 +21,16 @@ export default function UsersPage({ users, title, deleteUser }) {
     <Wrapper>
       <Header>{title}</Header>
       <ListWrapper>
-        {users.map(({ id, skills, name, phone, email, department }) => (
-          <SingleEntry key={id}>
+        {users.map(({ _id, skills, name, phone, email, department }) => (
+          <SingleEntry key={_id}>
             <User
+              id={_id}
               name={name}
               phone={phone}
               mail={email}
               department={department}
               skills={skills}
-              onClick={deleteUser}
+              deleteUser={deleteUser}
             />
           </SingleEntry>
         ))}

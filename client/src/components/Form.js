@@ -6,10 +6,9 @@ import { useState } from 'react'
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onNavigate: PropTypes.func.isRequired,
 }
 
-export default function Form({ onSubmit, onNavigate }) {
+export default function Form({ onSubmit }) {
   const [isDisabled, setIsDisabled] = useState(true)
 
   return (
@@ -60,12 +59,7 @@ export default function Form({ onSubmit, onNavigate }) {
         autoComplete="off"
       />
 
-      <Button
-        disabled={isDisabled}
-        type="submit"
-        children="Create User"
-        onClick={onNavigate}
-      />
+      <Button disabled={isDisabled} type="submit" children="Create User" />
     </StyledForm>
   )
 
