@@ -44,7 +44,6 @@ const Wrapper = styled.section`
   overflow-y: scroll;
 `
 const ListWrapper = styled.ul`
-  height: max-content;
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`

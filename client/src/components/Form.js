@@ -6,14 +6,15 @@ import { useState } from 'react'
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 }
 
-export default function Form({ onSubmit }) {
+export default function Form({ onSubmit, onNavigate }) {
   const [isDisabled, setIsDisabled] = useState(true)
 
   return (
     <StyledForm
-      onSubmit={handleSubmit}
+      onSubmit={(handleSubmit, onNavigate)}
       onChange={validateForm}
       aria-label="create a new user"
       role="form"

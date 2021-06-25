@@ -1,17 +1,20 @@
 import styled from 'styled-components/macro'
 import Header from '../components/Header'
+import image from '../images/Logo_1C.png'
 
 export default function HomePage({ title }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
       <LogoWrapper>
+        <StyledLogo src={image} alt="image" />
         <h2>Skills</h2>
         <p>
           the bigger a company is, the less is known about the individual
           employees. a lot of skills remain hidden and problems that could be
           solved internally are solved by external people. this causes
-          unnecessary costs. with skills we make the invisible skills visible.
+          unnecessary costs. with the skills app i make the invisible skills
+          visible.
         </p>
       </LogoWrapper>
     </Wrapper>
@@ -31,4 +34,10 @@ const LogoWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   color: var(--contrast_color);
+  align-items: center;
+`
+
+const StyledLogo = styled.img`
+  width: 150px;
+  height: 150px;
 `

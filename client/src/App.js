@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import styled from 'styled-components/macro'
@@ -12,6 +12,7 @@ const axios = require('axios')
 
 function App() {
   const [users, setUsers] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     fetch('/api/users')
@@ -27,7 +28,11 @@ function App() {
           <HomePage title="Home" />
         </Route>
         <Route path="/createPage">
-          <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
+          <CreatePage
+            onSubmit={handleCreatePage}
+            onNavigate={goToUsersPage}
+            title="CreatePage"
+          />
         </Route>
         <Route path="/usersPage">
           <UsersPage users={users} title="UsersPage" />
@@ -50,6 +55,10 @@ function App() {
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
       .catch(error => console.log(error))
+  }
+
+  function goToUsersPage() {
+    history.push('usersPage')
   }
 }
 
