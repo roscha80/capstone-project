@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import styled from 'styled-components/macro'
@@ -12,6 +12,7 @@ const axios = require('axios')
 
 function App() {
   const [users, setUsers] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     fetch('/api/users')
@@ -30,7 +31,11 @@ function App() {
           <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
         </Route>
         <Route path="/usersPage">
-          <UsersPage users={users} title="UsersPage" />
+          <UsersPage
+            users={users}
+            deleteUser={handleDeleteUser}
+            title="UsersPage"
+          />
         </Route>
       </Switch>
       <Route paths={['/', 'createPage', 'usersPage']}>
@@ -49,6 +54,21 @@ function App() {
     axios
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
+      .catch(error => console.log(error))
+    history.push('usersPage')
+  }
+
+  function handleDeleteUser(id) {
+    const updatedUsers = users.filter(user => user._id !== id)
+    setUsers(updatedUsers)
+
+    axios
+      .delete(`/api/users/${id}`)
+      .then(res =>
+        fetch('/api/users')
+          .then(res => res.json())
+          .then(users => setUsers(users))
+      )
       .catch(error => console.log(error))
   }
 }

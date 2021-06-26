@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import Form from './Form'
 
 describe('Form', () => {
@@ -6,7 +7,7 @@ describe('Form', () => {
     render(<Form />)
     expect(screen.getByRole('form')).toBeInTheDocument()
 
-    const inputName = screen.getByText('name:')
+    const inputName = screen.getByText('full name:')
     expect(inputName).toBeInTheDocument()
     const inputPhone = screen.getByText('phone:')
     expect(inputPhone).toBeInTheDocument()
@@ -18,5 +19,12 @@ describe('Form', () => {
     expect(inputSkills).toBeInTheDocument()
 
     expect(screen.getByRole('button')).toBeInTheDocument()
+  })
+  it('calls submit correctly', () => {
+    const handleSubmit = jest.fn()
+    render(<Form onClick={handleSubmit} />)
+    const button = screen.getByText('Create User')
+    userEvent.click(button)
+    expect(handleSubmit).toHaveBeenCalledTimes(0)
   })
 })

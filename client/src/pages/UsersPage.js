@@ -16,19 +16,21 @@ UsersPage.propTypes = {
   ),
 }
 
-export default function UsersPage({ users, title }) {
+export default function UsersPage({ users, title, deleteUser }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
       <ListWrapper>
-        {users.map(({ id, skills, name, phone, email, department }) => (
-          <SingleEntry key={id}>
+        {users.map(({ _id, skills, name, phone, email, department }) => (
+          <SingleEntry key={_id}>
             <User
+              id={_id}
               name={name}
               phone={phone}
               mail={email}
               department={department}
               skills={skills}
+              deleteUser={deleteUser}
             />
           </SingleEntry>
         ))}
@@ -44,7 +46,6 @@ const Wrapper = styled.section`
   overflow-y: scroll;
 `
 const ListWrapper = styled.ul`
-  height: max-content;
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`

@@ -4,6 +4,6 @@ import HomePage from './HomePage'
 describe('HomePage', () => {
   it('renders', () => {
     render(<HomePage />)
-    expect(screen.getByText('INSIDE JOB')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument()
   })
 })
