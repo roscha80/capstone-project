@@ -28,13 +28,11 @@ const Wrapper = styled.section`
   background: var(--background_dark);
 `
 const LogoWrapper = styled.div`
-  justify-content: center;
   justify-self: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   text-align: center;
   color: var(--contrast_color);
-  align-items: center;
 `
 
 const StyledLogo = styled.img`

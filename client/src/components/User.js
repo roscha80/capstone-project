@@ -24,13 +24,23 @@ export default function User({
   return (
     <Wrapper>
       <DeleteButtonWrapper>
-        <Button children={'X'} onClick={() => deleteUser(id)} />
+        <Button onClick={() => deleteUser(id)}>X</Button>
       </DeleteButtonWrapper>
       <Details>
-        <span>Name: {name}</span>
-        <span>Phone: {phone}</span>
-        <span>Mail: {mail}</span>
-        <span>Department: {department}</span>
+        <dl>
+          <span>
+            <dd>Name: {name}</dd>
+          </span>
+          <span>
+            <dd>Phone: {phone}</dd>
+          </span>
+          <span>
+            <dd>Mail: {mail}</dd>
+          </span>
+          <span>
+            <dd>Department: {department}</dd>
+          </span>
+        </dl>
         <SkillsList>
           {skills.map((skill, index) => (
             <li key={index}>{skill}</li>
