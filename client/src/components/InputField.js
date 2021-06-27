@@ -22,4 +22,7 @@ const Input = styled.input`
   :valid {
     background-color: palegreen;
   }
+  :focus {
+    border-color: hotpink;
+  }
 `

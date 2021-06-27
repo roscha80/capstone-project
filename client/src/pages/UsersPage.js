@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
-import User from '../components/User'
 import PropTypes from 'prop-types'
+
+import User from '../components/User'
 import Header from '../components/Header'
 
 UsersPage.propTypes = {

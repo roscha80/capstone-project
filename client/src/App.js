@@ -28,13 +28,13 @@ function App() {
           <HomePage title="Home" />
         </Route>
         <Route path="/createPage">
-          <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
+          <CreatePage onSubmit={handleCreatePage} title="Create Page" />
         </Route>
         <Route path="/usersPage">
           <UsersPage
             users={users}
             deleteUser={handleDeleteUser}
-            title="UsersPage"
+            title="Users Page"
           />
         </Route>
       </Switch>

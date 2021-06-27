@@ -1,10 +1,12 @@
+import { BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+import App from './App'
+
 import GlobalStyles from './GlobalStyles'
 import FontStyles from './fontStyles'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>

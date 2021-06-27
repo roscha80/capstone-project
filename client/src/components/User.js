@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+
 import Button from './Button'
 
 User.propTypes = {
