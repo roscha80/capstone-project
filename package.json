@@ -2,7 +2,7 @@
   "name": "skills-server",
   "version": "1.0.0",
   "description": "server-for-capstone",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "npm-run-all --parallel dev:client dev:server",
     "dev:client": "cd client && npm start",
