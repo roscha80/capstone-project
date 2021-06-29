@@ -88,7 +88,6 @@ function App() {
     console.log(value)
 
     result = users.filter(user => {
-      const regex = /^[a-zA-Z]+$/
       return user.name.search(value) !== -1
     })
     setFilteredUsers(result)
