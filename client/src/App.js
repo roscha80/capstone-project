@@ -6,6 +6,7 @@ import styled from 'styled-components/macro'
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
+import SearchPage from './pages/SearchPage'
 import NavBar from './components/NavBar'
 
 const axios = require('axios')
@@ -37,13 +38,21 @@ function App() {
             title="Users Page"
           />
         </Route>
+        <Route path="/searchPage">
+          <SearchPage
+            users={users}
+            title="Search Page"
+            onSubmit={filterUserEntries}
+          />
+        </Route>
       </Switch>
-      <Route paths={['/', 'createPage', 'usersPage']}>
+      <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
         <NavBar
           pages={[
             { title: 'Home', id: '/' },
-            { title: 'Create a new user', id: 'createPage' },
+            { title: 'New user', id: 'createPage' },
             { title: 'Users', id: 'usersPage' },
+            { title: 'Search', id: 'searchPage' },
           ]}
         />
       </Route>
@@ -71,6 +80,8 @@ function App() {
       )
       .catch(error => console.log(error))
   }
+
+  function filterUserEntries() {}
 }
 
 export default App
