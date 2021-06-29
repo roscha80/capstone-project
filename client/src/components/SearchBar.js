@@ -8,20 +8,22 @@ SearchBar.propTypes = {
   placeholder: PropTypes.string,
 }
 
-export default function SearchBar({ onSubmit, placeholder }) {
+export default function SearchBar({ onSubmit, onChange }) {
   return (
     <Wrapper>
-      <Form onSubmit={onSubmit}>
-        <InputField
-          name="search"
-          labelText="Filter entries:"
-          placeholder={placeholder}
-        />
-      </Form>
+      <InputField
+        name="search"
+        labelText="Filter entries:"
+        placeholder="Type the skill your are looking for..."
+        required={false}
+        valid={false}
+        onChange={onChange}
+        aautoComplete="off"
+      />
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div``
-
-const Form = styled.form``
+const Wrapper = styled.div`
+  display: grid;
+`

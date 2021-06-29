@@ -18,14 +18,15 @@ SearchPage.propTypes = {
   ),
   title: PropTypes.string,
   onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
-export default function SearchPage({ users, title, onSubmit }) {
+export default function SearchPage({ users, title, onChange }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
       <SearchBarWrapper>
-        <SearchBar onSubmit={onSubmit} />
+        <SearchBar onChange={onChange} />
       </SearchBarWrapper>
       <ListWrapper>
         {users.map(({ _id, skills, name, phone, email, department }) => (
@@ -48,9 +49,11 @@ export default function SearchPage({ users, title, onSubmit }) {
 const Wrapper = styled.section`
   background: var(--background_dark);
   display: grid;
+  overflow-y: scroll;
 `
-const SearchBarWrapper = styled.div``
-
+const SearchBarWrapper = styled.div`
+  width: 100%;
+`
 const ListWrapper = styled.ul`
   padding-bottom: 10px;
 `

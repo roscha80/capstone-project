@@ -13,12 +13,13 @@ const axios = require('axios')
 
 function App() {
   const [users, setUsers] = useState([])
+  const [filteredUsers, setFilteredUsers] = useState([users])
   const history = useHistory()
 
   useEffect(() => {
     fetch('/api/users')
       .then(res => res.json())
-      .then(users => setUsers(users))
+      .then(users => setUsers(users), setFilteredUsers(users))
       .catch(error => console.error(error))
   }, [])
 
@@ -40,9 +41,9 @@ function App() {
         </Route>
         <Route path="/searchPage">
           <SearchPage
-            users={users}
+            users={filteredUsers}
             title="Search Page"
-            onSubmit={filterUserEntries}
+            onChange={event => handleSearchUser(event)}
           />
         </Route>
       </Switch>
@@ -81,7 +82,15 @@ function App() {
       .catch(error => console.log(error))
   }
 
-  function filterUserEntries() {}
+  function handleSearchUser(event) {
+    let value = event.target.value
+    let result = []
+    console.log(value)
+    result = users.filter(data => {
+      return data.name.search(value) !== -1
+    })
+    setFilteredUsers(result)
+  }
 }
 
 export default App
