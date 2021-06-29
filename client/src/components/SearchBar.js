@@ -8,17 +8,15 @@ SearchBar.propTypes = {
   placeholder: PropTypes.string,
 }
 
-export default function SearchBar({ onSubmit, onChange }) {
+export default function SearchBar({ onChange }) {
   return (
     <Wrapper>
-      <InputField
+      <InputStyled
         name="search"
         labelText="Filter entries:"
         placeholder="Type the skill your are looking for..."
-        required={false}
-        valid={false}
         onChange={onChange}
-        aautoComplete="off"
+        autoComplete="off"
       />
     </Wrapper>
   )
@@ -26,4 +24,10 @@ export default function SearchBar({ onSubmit, onChange }) {
 
 const Wrapper = styled.div`
   display: grid;
+`
+
+const InputStyled = styled(InputField)`
+  :valid {
+    background-color: white;
+  }
 `

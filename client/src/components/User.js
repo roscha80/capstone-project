@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 User.propTypes = {
-  deleteUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func,
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
@@ -24,9 +24,14 @@ export default function User({
 }) {
   return (
     <Wrapper>
-      <DeleteButtonWrapper>
-        <Button onClick={() => deleteUser(id)}>X</Button>
-      </DeleteButtonWrapper>
+      {deleteUser ? (
+        <DeleteButtonWrapper>
+          <Button onClick={() => deleteUser(id)}>X</Button>
+        </DeleteButtonWrapper>
+      ) : (
+        ''
+      )}
+
       <Details>
         <dl>
           <span>

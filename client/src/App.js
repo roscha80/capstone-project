@@ -13,13 +13,13 @@ const axios = require('axios')
 
 function App() {
   const [users, setUsers] = useState([])
-  const [filteredUsers, setFilteredUsers] = useState([users])
+  const [filteredUsers, setFilteredUsers] = useState([])
   const history = useHistory()
 
   useEffect(() => {
     fetch('/api/users')
       .then(res => res.json())
-      .then(users => setUsers(users), setFilteredUsers(users))
+      .then(users => setUsers(users))
       .catch(error => console.error(error))
   }, [])
 
@@ -86,8 +86,10 @@ function App() {
     let value = event.target.value
     let result = []
     console.log(value)
-    result = users.filter(data => {
-      return data.name.search(value) !== -1
+
+    result = users.filter(user => {
+      const regex = /^[a-zA-Z]+$/
+      return user.name.search(value) !== -1
     })
     setFilteredUsers(result)
   }

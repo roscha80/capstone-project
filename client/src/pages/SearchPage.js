@@ -29,18 +29,19 @@ export default function SearchPage({ users, title, onChange }) {
         <SearchBar onChange={onChange} />
       </SearchBarWrapper>
       <ListWrapper>
-        {users.map(({ _id, skills, name, phone, email, department }) => (
-          <SingleEntry key={_id}>
-            <User
-              id={_id}
-              name={name}
-              phone={phone}
-              mail={email}
-              department={department}
-              skills={skills}
-            />
-          </SingleEntry>
-        ))}
+        {users &&
+          users.map(({ _id, skills, name, phone, email, department }) => (
+            <SingleEntry key={_id}>
+              <User
+                id={_id}
+                name={name}
+                phone={phone}
+                mail={email}
+                department={department}
+                skills={skills}
+              />
+            </SingleEntry>
+          ))}
       </ListWrapper>
     </Wrapper>
   )
@@ -49,6 +50,7 @@ export default function SearchPage({ users, title, onChange }) {
 const Wrapper = styled.section`
   background: var(--background_dark);
   display: grid;
+  grid-template-rows: 60px auto;
   overflow-y: scroll;
 `
 const SearchBarWrapper = styled.div`
