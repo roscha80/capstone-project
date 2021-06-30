@@ -14,7 +14,7 @@ export default function SearchBar({ onChange }) {
       <InputStyled
         name="search"
         labelText="Filter entries:"
-        placeholder="Type the skill your are looking for..."
+        placeholder="..."
         onChange={onChange}
         autoComplete="off"
       />

@@ -38,10 +38,15 @@ export default function User({
             <dd>Name: {name}</dd>
           </span>
           <span>
-            <dd>Phone: {phone}</dd>
+            <dd>
+              Phone: <HrefStyled href={`tel:${phone}`}>{phone}</HrefStyled>
+            </dd>
           </span>
           <span>
-            <dd>Mail: {mail}</dd>
+            <dd>
+              Mail:
+              <HrefStyled href={`mailto:${mail}`}>{mail}</HrefStyled>
+            </dd>
           </span>
           <span>
             <dd>Department: {department}</dd>
@@ -82,4 +87,9 @@ const DeleteButtonWrapper = styled.div`
   background-color: var(--background_dark);
   position: absolute;
   right: -10px;
+`
+
+const HrefStyled = styled.a`
+  text-decoration: none;
+  color: var(--contrast_color);
 `

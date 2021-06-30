@@ -85,7 +85,6 @@ function App() {
   function handleSearchUser(event) {
     let value = event.target.value
     let result = []
-    console.log(value)
 
     result = users.filter(user => {
       return user.name.search(value) !== -1
