@@ -1,7 +1,10 @@
+const { response } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const { REACT_APP_DB_URL } = process.env
+
+const path = require('path')
 
 mongoose
   .connect(REACT_APP_DB_URL, {
@@ -16,7 +19,11 @@ const app = express()
 
 app.use('/', express.json())
 app.use('/api/users', require('./routes/users'))
-app.use(express.static('client/build'))
+app.use(express.static(path.resolve(__dirname, 'client/build')))
+
+app.length('*', function (req, res) {
+  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
+})
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'))
