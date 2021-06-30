@@ -21,13 +21,13 @@ app.use('/', express.json())
 app.use('/api/users', require('./routes/users'))
 app.use(express.static(path.resolve(__dirname, 'client/build')))
 
-app.length('*', function (req, res) {
+app.get('*', (req, res) => {
   response.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
 })
 
-app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'))
-})
+// app.use('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/build/index.html'))
+// })
 
 app.use((req, res) => res.sendStatus(404))
 
