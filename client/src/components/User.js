@@ -44,8 +44,7 @@ export default function User({
           </span>
           <span>
             <dd>
-              Mail:
-              <HrefStyled href={`mailto:${mail}`}>{mail}</HrefStyled>
+              Mail: <HrefStyled href={`mailto:${mail}`}>{mail}</HrefStyled>
             </dd>
           </span>
           <span>
