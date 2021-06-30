@@ -22,7 +22,7 @@ body {
   font-size: 112.5%;
   max-width: 450px;
   align-items: center;
-  background-color: var(----background_dark);
+  background-color: var(--background_dark);
 
   
 }
