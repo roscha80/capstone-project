@@ -84,12 +84,12 @@ function App() {
 
   function handleSearchUser(event) {
     let value = event.target.value
-    let result = []
+    let searchResult = []
 
-    result = users.filter(user => {
+    searchResult = users.filter(user => {
       return user.name.search(value) !== -1
     })
-    setFilteredUsers(result)
+    setFilteredUsers(searchResult)
   }
 }
 

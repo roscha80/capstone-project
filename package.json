@@ -10,9 +10,11 @@
     "test": "cd client && npm test",
     "storybook": "cd client && npm run storybook",
     "build": "cd client && npm run build",
-    "postinstall": "cd client && npm install",
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "engines": {
     "node": "10.16.0"
