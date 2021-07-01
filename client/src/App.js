@@ -83,12 +83,15 @@ function App() {
   }
 
   function handleSearchUser(event) {
-    let value = event.target.value
+    let value = event.target.value.toLowerCase()
     let searchResult = []
 
-    searchResult = users.filter(user => {
-      return user.name.search(value) !== -1
-    })
+    if (value.trim()) {
+      searchResult = users.filter(user => {
+        return user.skills.join().toLowerCase().search(value) !== -1
+      })
+    }
+
     setFilteredUsers(searchResult)
   }
 }
