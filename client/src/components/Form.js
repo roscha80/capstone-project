@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
-import InputField from './InputField'
-import Button from './Button'
 import styled from 'styled-components/macro'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
+
+import InputField from './InputField'
+import Button from './Button'
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
@@ -13,17 +14,17 @@ export default function Form({ onSubmit }) {
 
   return (
     <StyledForm
+      aria-label="create a new user"
       onSubmit={handleSubmit}
       onChange={validateForm}
-      aria-label="create a new user"
       role="form"
     >
       <InputField
         name="name"
         labelText="full name:"
         placeholder="Please enter your full name..."
-        maxLength="40"
         minLength="5"
+        maxLength="40"
         required
         autoComplete="off"
       />

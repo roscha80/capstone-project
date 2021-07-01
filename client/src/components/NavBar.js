@@ -1,6 +1,8 @@
-import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
+
+import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+
 import Button from './Button'
 
 NavBar.propTypes = {

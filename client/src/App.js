@@ -6,12 +6,14 @@ import styled from 'styled-components/macro'
 import CreatePage from './pages/CreatePage'
 import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
+import SearchPage from './pages/SearchPage'
 import NavBar from './components/NavBar'
 
 const axios = require('axios')
 
 function App() {
   const [users, setUsers] = useState([])
+  const [filteredUsers, setFilteredUsers] = useState([])
   const history = useHistory()
 
   useEffect(() => {
@@ -28,22 +30,30 @@ function App() {
           <HomePage title="Home" />
         </Route>
         <Route path="/createPage">
-          <CreatePage onSubmit={handleCreatePage} title="CreatePage" />
+          <CreatePage onSubmit={handleCreatePage} title="Create Page" />
         </Route>
         <Route path="/usersPage">
           <UsersPage
             users={users}
             deleteUser={handleDeleteUser}
-            title="UsersPage"
+            title="Users Page"
+          />
+        </Route>
+        <Route path="/searchPage">
+          <SearchPage
+            users={filteredUsers}
+            title="Search Page"
+            onChange={event => handleSearchUser(event)}
           />
         </Route>
       </Switch>
-      <Route paths={['/', 'createPage', 'usersPage']}>
+      <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
         <NavBar
           pages={[
             { title: 'Home', id: '/' },
-            { title: 'Create a new user', id: 'createPage' },
+            { title: 'New user', id: 'createPage' },
             { title: 'Users', id: 'usersPage' },
+            { title: 'Search', id: 'searchPage' },
           ]}
         />
       </Route>
@@ -70,6 +80,19 @@ function App() {
           .then(users => setUsers(users))
       )
       .catch(error => console.log(error))
+  }
+
+  function handleSearchUser(event) {
+    let value = event.target.value.toLowerCase()
+    let searchResult = []
+
+    if (value.trim()) {
+      searchResult = users.filter(user => {
+        return user.skills.join().toLowerCase().search(value) !== -1
+      })
+    }
+
+    setFilteredUsers(searchResult)
   }
 }
 

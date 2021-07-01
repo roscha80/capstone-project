@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro'
+
 import Header from '../components/Header'
+
 import image from '../images/Logo_1C.png'
 
 export default function HomePage({ title }) {

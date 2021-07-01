@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
+
 import Form from '../components/Form'
-import React from 'react'
 import Header from '../components/Header'
 
 export default function CreatePage({ onSubmit, onChange, title }) {
