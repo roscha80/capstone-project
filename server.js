@@ -2,7 +2,7 @@ const { response } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
-const { REACT_APP_DB_URL } = process.env
+const { REACT_APP_DB_URL, PORT = 4000 } = process.env
 
 const path = require('path')
 
@@ -29,6 +29,6 @@ app.use((req, res) => res.sendStatus(404))
 
 app.use(require('./routes/error'))
 
-app.listen(4000, () => {
-  console.log('Server started at http://localhost:4000')
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`)
 })
