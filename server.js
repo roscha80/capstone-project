@@ -25,10 +25,6 @@ app.get('*', (req, res) => {
   response.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
 })
 
-// app.use('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client/build/index.html'))
-// })
-
 app.use((req, res) => res.sendStatus(404))
 
 app.use(require('./routes/error'))
