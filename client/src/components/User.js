@@ -78,8 +78,12 @@ const Details = styled.div`
 
 const SkillsList = styled.ul`
   display: flex;
+  flex-direction: row;
   gap: 10px;
   list-style-type: none;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const DeleteButtonWrapper = styled.div`
