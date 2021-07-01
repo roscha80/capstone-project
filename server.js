@@ -22,7 +22,7 @@ app.use('/api/users', require('./routes/users'))
 app.use(express.static(path.resolve(__dirname, 'client/build')))
 
 app.get('*', (req, res) => {
-  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
 })
 
 app.use((req, res) => res.sendStatus(404))
