@@ -11,13 +11,13 @@ export default function HomePage({ title }) {
       <LogoWrapper>
         <StyledLogo src={image} alt="image" />
         <h2>Skills</h2>
-        <p>
+        <StyledP>
           the bigger a company is, the less is known about the individual
           employees. a lot of skills remain hidden and problems that could be
           solved internally are solved by external people. this causes
           unnecessary costs. with the skills app i make the invisible skills
           visible.
-        </p>
+        </StyledP>
       </LogoWrapper>
     </Wrapper>
   )
@@ -35,6 +35,10 @@ const LogoWrapper = styled.div`
   place-items: center;
   text-align: center;
   color: var(--contrast_color);
+`
+
+const StyledP = styled.p`
+  margin: 0 10px 0 10px;
 `
 
 const StyledLogo = styled.img`
