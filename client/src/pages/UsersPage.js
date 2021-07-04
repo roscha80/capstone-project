@@ -42,7 +42,7 @@ export default function UsersPage({ users, title, deleteUser }) {
 
 const Wrapper = styled.section`
   list-style-type: none;
-  background: var(--background_dark);
+  background-color: ${props => props.theme.colors.active};
   display: grid;
   overflow-y: scroll;
 `
@@ -50,5 +50,6 @@ const ListWrapper = styled.ul`
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`
+  background-color: ${props => props.theme.colors.background_switch};
   padding: 10px;
 `

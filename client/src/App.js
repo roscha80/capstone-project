@@ -1,5 +1,10 @@
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+
+import GlobalStyles from './GlobalStyles'
+import { lightTheme, darkTheme } from './components/Themes'
+import { useDarkMode } from './components/useDarkMode'
 
 import styled from 'styled-components/macro'
 
@@ -14,6 +19,10 @@ const axios = require('axios')
 function App() {
   const [users, setUsers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
+  const [theme, themeToggler] = useDarkMode()
+
+  const themeMode = theme === 'light' ? lightTheme : darkTheme
+
   const history = useHistory()
 
   useEffect(() => {
@@ -24,40 +33,43 @@ function App() {
   }, [])
 
   return (
-    <AppWrapper>
-      <Switch>
-        <Route path="/" exact>
-          <HomePage title="Home" />
-        </Route>
-        <Route path="/createPage">
-          <CreatePage onSubmit={handleCreatePage} title="Create Page" />
-        </Route>
-        <Route path="/usersPage">
-          <UsersPage
-            users={users}
-            deleteUser={handleDeleteUser}
-            title="Users Page"
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <AppWrapper>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage title="Home" onClick={themeToggler} />
+          </Route>
+          <Route path="/createPage">
+            <CreatePage onSubmit={handleCreatePage} title="Create Page" />
+          </Route>
+          <Route path="/usersPage">
+            <UsersPage
+              users={users}
+              deleteUser={handleDeleteUser}
+              title="Users Page"
+            />
+          </Route>
+          <Route path="/searchPage">
+            <SearchPage
+              users={filteredUsers}
+              title="Search Page"
+              onChange={event => handleSearchUser(event)}
+            />
+          </Route>
+        </Switch>
+        <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
+          <NavBar
+            pages={[
+              { title: 'Home', id: '/' },
+              { title: 'New user', id: 'createPage' },
+              { title: 'Users', id: 'usersPage' },
+              { title: 'Search', id: 'searchPage' },
+            ]}
           />
         </Route>
-        <Route path="/searchPage">
-          <SearchPage
-            users={filteredUsers}
-            title="Search Page"
-            onChange={event => handleSearchUser(event)}
-          />
-        </Route>
-      </Switch>
-      <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
-        <NavBar
-          pages={[
-            { title: 'Home', id: '/' },
-            { title: 'New user', id: 'createPage' },
-            { title: 'Users', id: 'usersPage' },
-            { title: 'Search', id: 'searchPage' },
-          ]}
-        />
-      </Route>
-    </AppWrapper>
+      </AppWrapper>
+    </ThemeProvider>
   )
 
   function handleCreatePage(user) {

@@ -48,17 +48,20 @@ export default function SearchPage({ users, title, onChange }) {
 }
 
 const Wrapper = styled.section`
-  background: var(--background_dark);
+  background: ${props => props.theme.colors.background};
   display: grid;
   grid-template-rows: 60px auto;
   overflow-y: scroll;
 `
 const SearchBarWrapper = styled.div`
+  background-color: ${props => props.theme.colors.background};
   width: 100%;
 `
 const ListWrapper = styled.ul`
+  background-color: ${props => props.theme.colors.background};
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`
+  background-color: ${props => props.theme.colors.background_switch};
   padding: 10px;
 `

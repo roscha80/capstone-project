@@ -60,7 +60,11 @@ export default function Form({ onSubmit }) {
         autoComplete="off"
       />
 
-      <Button disabled={isDisabled} type="submit" children="Create User" />
+      <ButtonStyled
+        disabled={isDisabled}
+        type="submit"
+        children="Create User"
+      />
     </StyledForm>
   )
 
@@ -103,5 +107,10 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: var(--background_dark);
+  background: ${props => props.theme.colors.background};
+`
+
+const ButtonStyled = styled(Button)`
+  background: ${props => props.theme.colors.background_switch};
+  color: ${props => props.theme.colors.fontcolor_switch};
 `
