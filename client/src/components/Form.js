@@ -95,6 +95,7 @@ export default function Form({ onSubmit }) {
     const inputEmail = inputs.email.value.trim()
     const inputDepartment = inputs.department.value.trim()
     const inputSkills = inputs.skills.value.trim()
+
     setIsDisabled(
       inputName && inputPhone && inputEmail && inputDepartment && inputSkills
         ? false

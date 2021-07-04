@@ -5,8 +5,6 @@ import Button from '../components/Button'
 
 import logo from '../images/Logo_1C.png'
 
-import ThemeLogo from '../images/day-and-night_light.padding'
-
 export default function HomePage({ title, onClick }) {
   return (
     <Wrapper>
@@ -24,8 +22,9 @@ export default function HomePage({ title, onClick }) {
         </StyledP>
       </LogoWrapper>
       <ButtonStyled onClick={onClick}>
-        Switch Theme
-        <ThemeLogoStyled src={ThemeLogo} alt="" />
+        {'\u25CF'}
+        {'|'}
+        {'\u25CB'}
       </ButtonStyled>
     </Wrapper>
   )
@@ -37,6 +36,7 @@ const Wrapper = styled.section`
   height: 100vh;
   background: ${props => props.theme.colors.background};
 `
+
 const LogoWrapper = styled.div`
   justify-self: center;
   display: grid;
@@ -58,13 +58,9 @@ const StyledLogo = styled.img`
   width: 150px;
   height: 150px;
 `
-const ThemeLogoStyled = styled.img`
-  width: fit-content;
-  height: fit-content;
-`
 
 const ButtonStyled = styled(Button)`
-  width: 150px;
+  width: 60px;
   height: 30px;
   background: ${props => props.theme.colors.background_switch};
   color: ${props => props.theme.colors.fontcolor_switch};

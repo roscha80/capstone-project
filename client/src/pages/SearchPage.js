@@ -17,7 +17,6 @@ SearchPage.propTypes = {
     })
   ),
   title: PropTypes.string,
-  onSubmit: PropTypes.func,
   onChange: PropTypes.func,
 }
 
