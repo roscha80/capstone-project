@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { lightTheme, darkTheme } from './components/Themes'
-import { useTheme } from './components/useTheme'
+import { useTheme } from './hooks/useTheme'
 
 import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components/macro'

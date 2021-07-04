@@ -7,9 +7,9 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
   
 :root {
-  --background_light: DEF2F1#;
-  --background_dark: #3AAFA9;
+  --background_light: #DEF2F1;
   --fontcolor_light: #2B7A78;
+  --background_dark: #3AAFA9;
   --fontcolor_dark: #DEF2F1;
   --contrast_color: #17252a;
   --active: #6bcfd1;
