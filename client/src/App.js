@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { lightTheme, darkTheme } from './components/Themes'
-import { useDarkMode } from './components/useDarkMode'
+import { useTheme } from './components/useTheme'
 
 import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components/macro'
@@ -19,7 +19,7 @@ const axios = require('axios')
 function App() {
   const [users, setUsers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
-  const [theme, themeToggler] = useDarkMode()
+  const [theme, themeToggler] = useTheme()
 
   const themeMode = theme === 'light' ? lightTheme : darkTheme
 
@@ -38,7 +38,7 @@ function App() {
       <AppWrapper>
         <Switch>
           <Route path="/" exact>
-            <HomePage title="Home" onClick={themeToggler} />
+            <HomePage title="Home" onThemeClick={themeToggler} />
           </Route>
           <Route path="/createPage">
             <CreatePage onSubmit={handleCreatePage} title="Create Page" />
@@ -46,7 +46,7 @@ function App() {
           <Route path="/usersPage">
             <UsersPage
               users={users}
-              deleteUser={handleDeleteUser}
+              deleteUser={onDeleteUser}
               title="Users Page"
             />
           </Route>
@@ -76,7 +76,7 @@ function App() {
     createNewUserEntrie(user)
   }
 
-  function handleDeleteUser(id) {
+  function onDeleteUser(id) {
     const updatedUsers = users.filter(user => user._id !== id)
     setUsers(updatedUsers)
 
@@ -84,12 +84,15 @@ function App() {
   }
 
   function handleSearchUser(event) {
-    let value = event.target.value.toLowerCase()
-    let searchResult = []
+    let valueSearchInput = event.target.value.toLowerCase()
+    let findUsers = []
 
-    searchResult = searchValue(value, searchResult)
-
-    setFilteredUsers(searchResult)
+    if (valueSearchInput.trim()) {
+      findUsers = users.filter(user => {
+        return user.skills.join().toLowerCase().search(valueSearchInput) !== -1
+      })
+    }
+    setFilteredUsers(findUsers)
   }
 
   function createNewUserEntrie(user) {
@@ -109,15 +112,6 @@ function App() {
           .then(users => setUsers(users))
       )
       .catch(error => console.log(error))
-  }
-
-  function searchValue(value, searchResult) {
-    if (value.trim()) {
-      searchResult = users.filter(user => {
-        return user.skills.join().toLowerCase().search(value) !== -1
-      })
-    }
-    return searchResult
   }
 }
 

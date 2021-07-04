@@ -5,7 +5,7 @@ import Button from '../components/Button'
 
 import logo from '../images/Logo_1C.png'
 
-export default function HomePage({ title, onClick }) {
+export default function HomePage({ title, onThemeClick }) {
   return (
     <Wrapper>
       <Header>{title}</Header>
@@ -21,7 +21,7 @@ export default function HomePage({ title, onClick }) {
           visible.
         </StyledP>
       </LogoWrapper>
-      <ButtonStyled onClick={onClick}>
+      <ButtonStyled onClick={onThemeClick}>
         {'\u25CF'}
         {'|'}
         {'\u25CB'}
