@@ -26,7 +26,7 @@ export default function User({
     <Wrapper>
       {deleteUser ? (
         <DeleteButtonWrapper>
-          <Button onClick={() => deleteUser(id)}>X</Button>
+          <ButtonStyled onClick={() => deleteUser(id)}>X</ButtonStyled>
         </DeleteButtonWrapper>
       ) : (
         ''
@@ -62,14 +62,16 @@ export default function User({
 }
 
 const Wrapper = styled.section`
-  color: var(--fontcolor_light);
+  color: ${props => props.theme.colors.fontcolor_switch};
+  background-color: ${props => props.theme.colors.background};
   width: 100%;
   justify-content: center;
   position: relative;
 `
 
 const Details = styled.div`
-  background-color: var(--background_light);
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.fontcolor};
   padding: 10px 20px;
   width: 100%;
   display: grid;
@@ -77,6 +79,7 @@ const Details = styled.div`
 `
 
 const SkillsList = styled.ul`
+  background-color: ${props => props.theme.colors.background};
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -87,12 +90,17 @@ const SkillsList = styled.ul`
 `
 
 const DeleteButtonWrapper = styled.div`
-  background-color: var(--background_dark);
+  background-color: ${props => props.theme.colors.background_switch};
   position: absolute;
   right: -10px;
 `
 
+const ButtonStyled = styled(Button)`
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.fontcolor};
+`
+
 const HrefStyled = styled.a`
   text-decoration: none;
-  color: var(--contrast_color);
+  color: ${props => props.theme.colors.contrast_color};
 `

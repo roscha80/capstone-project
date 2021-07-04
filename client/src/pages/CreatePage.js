@@ -18,5 +18,5 @@ const Wrapper = styled.section`
   list-style-type: none;
   height: 100vh;
   align-self: center;
-  background: var(--background_dark);
+  background: ${props => props.theme.colors.background};
 `

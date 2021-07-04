@@ -1,6 +1,11 @@
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
 
+import { lightTheme, darkTheme } from './components/Themes'
+import { useTheme } from './hooks/useTheme'
+
+import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components/macro'
 
 import CreatePage from './pages/CreatePage'
@@ -14,6 +19,10 @@ const axios = require('axios')
 function App() {
   const [users, setUsers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
+  const [theme, themeToggler] = useTheme()
+
+  const themeMode = theme === 'light' ? lightTheme : darkTheme
+
   const history = useHistory()
 
   useEffect(() => {
@@ -24,43 +33,69 @@ function App() {
   }, [])
 
   return (
-    <AppWrapper>
-      <Switch>
-        <Route path="/" exact>
-          <HomePage title="Home" />
-        </Route>
-        <Route path="/createPage">
-          <CreatePage onSubmit={handleCreatePage} title="Create Page" />
-        </Route>
-        <Route path="/usersPage">
-          <UsersPage
-            users={users}
-            deleteUser={handleDeleteUser}
-            title="Users Page"
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <AppWrapper>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage title="Home" onThemeClick={themeToggler} />
+          </Route>
+          <Route path="/createPage">
+            <CreatePage onSubmit={handleCreatePage} title="Create Page" />
+          </Route>
+          <Route path="/usersPage">
+            <UsersPage
+              users={users}
+              deleteUser={onDeleteUser}
+              title="Users Page"
+            />
+          </Route>
+          <Route path="/searchPage">
+            <SearchPage
+              users={filteredUsers}
+              title="Search Page"
+              onChange={event => handleSearchUser(event)}
+            />
+          </Route>
+        </Switch>
+        <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
+          <NavBar
+            pages={[
+              { title: 'Home', id: '/' },
+              { title: 'New user', id: 'createPage' },
+              { title: 'Users', id: 'usersPage' },
+              { title: 'Search', id: 'searchPage' },
+            ]}
           />
         </Route>
-        <Route path="/searchPage">
-          <SearchPage
-            users={filteredUsers}
-            title="Search Page"
-            onChange={event => handleSearchUser(event)}
-          />
-        </Route>
-      </Switch>
-      <Route paths={['/', 'createPage', 'usersPage', 'searchPage']}>
-        <NavBar
-          pages={[
-            { title: 'Home', id: '/' },
-            { title: 'New user', id: 'createPage' },
-            { title: 'Users', id: 'usersPage' },
-            { title: 'Search', id: 'searchPage' },
-          ]}
-        />
-      </Route>
-    </AppWrapper>
+      </AppWrapper>
+    </ThemeProvider>
   )
 
   function handleCreatePage(user) {
+    createNewUserEntrie(user)
+  }
+
+  function onDeleteUser(id) {
+    const updatedUsers = users.filter(user => user._id !== id)
+    setUsers(updatedUsers)
+
+    deleteFetch(id)
+  }
+
+  function handleSearchUser(event) {
+    let valueSearchInput = event.target.value.toLowerCase()
+    let findUsers = []
+
+    if (valueSearchInput.trim()) {
+      findUsers = users.filter(user => {
+        return user.skills.join().toLowerCase().search(valueSearchInput) !== -1
+      })
+    }
+    setFilteredUsers(findUsers)
+  }
+
+  function createNewUserEntrie(user) {
     axios
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
@@ -68,10 +103,7 @@ function App() {
     history.push('usersPage')
   }
 
-  function handleDeleteUser(id) {
-    const updatedUsers = users.filter(user => user._id !== id)
-    setUsers(updatedUsers)
-
+  function deleteFetch(id) {
     axios
       .delete(`/api/users/${id}`)
       .then(res =>
@@ -80,19 +112,6 @@ function App() {
           .then(users => setUsers(users))
       )
       .catch(error => console.log(error))
-  }
-
-  function handleSearchUser(event) {
-    let value = event.target.value.toLowerCase()
-    let searchResult = []
-
-    if (value.trim()) {
-      searchResult = users.filter(user => {
-        return user.skills.join().toLowerCase().search(value) !== -1
-      })
-    }
-
-    setFilteredUsers(searchResult)
   }
 }
 
