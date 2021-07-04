@@ -2,10 +2,10 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import GlobalStyles from './GlobalStyles'
 import { lightTheme, darkTheme } from './components/Themes'
 import { useDarkMode } from './components/useDarkMode'
 
+import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components/macro'
 
 import CreatePage from './pages/CreatePage'
@@ -73,6 +73,26 @@ function App() {
   )
 
   function handleCreatePage(user) {
+    createNewUserEntrie(user)
+  }
+
+  function handleDeleteUser(id) {
+    const updatedUsers = users.filter(user => user._id !== id)
+    setUsers(updatedUsers)
+
+    deleteFetch(id)
+  }
+
+  function handleSearchUser(event) {
+    let value = event.target.value.toLowerCase()
+    let searchResult = []
+
+    searchResult = searchValue(value, searchResult)
+
+    setFilteredUsers(searchResult)
+  }
+
+  function createNewUserEntrie(user) {
     axios
       .post('/api/users', user)
       .then(res => setUsers([...users, res.data]))
@@ -80,10 +100,7 @@ function App() {
     history.push('usersPage')
   }
 
-  function handleDeleteUser(id) {
-    const updatedUsers = users.filter(user => user._id !== id)
-    setUsers(updatedUsers)
-
+  function deleteFetch(id) {
     axios
       .delete(`/api/users/${id}`)
       .then(res =>
@@ -94,17 +111,13 @@ function App() {
       .catch(error => console.log(error))
   }
 
-  function handleSearchUser(event) {
-    let value = event.target.value.toLowerCase()
-    let searchResult = []
-
+  function searchValue(value, searchResult) {
     if (value.trim()) {
       searchResult = users.filter(user => {
         return user.skills.join().toLowerCase().search(value) !== -1
       })
     }
-
-    setFilteredUsers(searchResult)
+    return searchResult
   }
 }
 
