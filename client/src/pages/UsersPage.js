@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
-import User from '../components/User'
 import Header from '../components/Header'
+import User from '../components/User'
 
 UsersPage.propTypes = {
   users: PropTypes.arrayOf(

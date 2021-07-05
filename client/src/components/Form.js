@@ -1,12 +1,13 @@
-import styled from 'styled-components/macro'
 import { useState } from 'react'
+
+import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 import InputField from './InputField'
 import Button from './Button'
 
 Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 }
 
 export default function Form({ onSubmit }) {
