@@ -80,7 +80,7 @@ function App() {
     const updatedUsers = users.filter(user => user._id !== id)
     setUsers(updatedUsers)
 
-    withoutDeletedUserFetch(id)
+    fetchedUsersAfterDelete(id)
   }
 
   function handleSearchUser(event) {
@@ -103,7 +103,7 @@ function App() {
     history.push('usersPage')
   }
 
-  function withoutDeletedUserFetch(id) {
+  function fetchedUsersAfterDelete(id) {
     axios
       .delete(`/api/users/${id}`)
       .then(res =>
