@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
-import Form from '../components/Form'
 import Header from '../components/Header'
+import Form from '../components/Form'
 
 export default function CreatePage({ onSubmit, onChange, title }) {
   return (
@@ -18,5 +18,5 @@ const Wrapper = styled.section`
   list-style-type: none;
   height: 100vh;
   align-self: center;
-  background: ${props => props.theme.colors.background};
+  background: var(--background);
 `

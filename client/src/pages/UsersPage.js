@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
-import User from '../components/User'
 import Header from '../components/Header'
+import User from '../components/User'
 
 UsersPage.propTypes = {
   users: PropTypes.arrayOf(
@@ -42,7 +42,7 @@ export default function UsersPage({ users, title, deleteUser }) {
 
 const Wrapper = styled.section`
   list-style-type: none;
-  background-color: ${props => props.theme.colors.active};
+  background-color: var(--background_active);
   display: grid;
   overflow-y: scroll;
 `
@@ -50,6 +50,6 @@ const ListWrapper = styled.ul`
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`
-  background-color: ${props => props.theme.colors.background_switch};
+  background-color: var(--background_switch);
   padding: 10px;
 `

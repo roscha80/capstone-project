@@ -1,12 +1,13 @@
-import styled from 'styled-components/macro'
 import { useState } from 'react'
+
+import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 import InputField from './InputField'
 import Button from './Button'
 
 Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 }
 
 export default function Form({ onSubmit }) {
@@ -108,10 +109,10 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: ${props => props.theme.colors.background};
+  background: var(--background);
 `
 
 const ButtonStyled = styled(Button)`
-  background: ${props => props.theme.colors.background_switch};
-  color: ${props => props.theme.colors.fontcolor_switch};
+  background: var(--background_switch);
+  color: var(--fontcolor_switch);
 `

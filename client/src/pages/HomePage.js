@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-rows: 60px auto 160px;
   height: 100vh;
-  background: ${props => props.theme.colors.background};
+  background: var(--background);
 `
 
 const LogoWrapper = styled.div`
@@ -42,15 +42,15 @@ const LogoWrapper = styled.div`
   display: grid;
   place-items: center;
   text-align: center;
-  color: ${props => props.theme.colors.contrast_color};
+  color: var(--fontcolor_contrast);
 `
 
 const H2Styled = styled.h2`
-  color: ${props => props.theme.colors.fontcolor};
+  color: var(--fontcolor);
 `
 
 const StyledP = styled.p`
-  color: ${props => props.theme.colors.fontcolor};
+  color: var(--fontcolor_switch);
   margin: 0 10px 0 10px;
 `
 
@@ -62,6 +62,6 @@ const StyledLogo = styled.img`
 const ButtonStyled = styled(Button)`
   width: 60px;
   height: 30px;
-  background: ${props => props.theme.colors.background_switch};
-  color: ${props => props.theme.colors.fontcolor_switch};
+  background: var(--background_switch);
+  color: var(--fontcolor_switch);
 `
