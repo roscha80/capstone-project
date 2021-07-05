@@ -108,10 +108,10 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: ${props => props.theme.colors.background};
+  background: var(--background);
 `
 
 const ButtonStyled = styled(Button)`
-  background: ${props => props.theme.colors.background_switch};
-  color: ${props => props.theme.colors.fontcolor_switch};
+  background: var(--background_switch);
+  color: var(--fontcolor_switch);
 `

@@ -27,13 +27,13 @@ export default function NavBar({ pages }) {
 
 const Nav = styled.nav`
   display: flex;
-  background-color: ${props => props.theme.colors.background_switch};
+  background-color: var(--background_switch);
   position: fixed;
   bottom: 0;
   width: 100%;
   padding: 5px;
   justify-content: center;
-  border: solid ${props => props.theme.colors.contrast_color};
+  border: solid var(--background_contrast);
   border-width: 5px 0 0 0;
 `
 

@@ -47,20 +47,20 @@ export default function SearchPage({ users, title, onChange }) {
 }
 
 const Wrapper = styled.section`
-  background: ${props => props.theme.colors.background};
+  background: var(--background);
   display: grid;
   grid-template-rows: 60px auto;
   overflow-y: scroll;
 `
 const SearchBarWrapper = styled.div`
-  background-color: ${props => props.theme.colors.background};
+  background-color: var(--background);
   width: 100%;
 `
 const ListWrapper = styled.ul`
-  background-color: ${props => props.theme.colors.background};
+  background-color: var(--background);
   padding-bottom: 10px;
 `
 const SingleEntry = styled.li`
-  background-color: ${props => props.theme.colors.background_switch};
+  background-color: var(--background_switch);
   padding: 10px;
 `

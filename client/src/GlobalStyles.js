@@ -7,13 +7,16 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
   
 :root {
-  --background_light: #DEF2F1;
-  --fontcolor_light: #2B7A78;
-  --background_dark: #3AAFA9;
-  --fontcolor_dark: #DEF2F1;
-  --contrast_color: #17252a;
-  --active: #6bcfd1;
-  --highlight: #FFC0CB;
+  --background: ${({ theme }) => theme.colors.background};
+  --background_switch: ${({ theme }) => theme.colors.background_switch};
+  --fontcolor: ${({ theme }) => theme.colors.fontcolor};
+  --fontcolor_switch: ${({ theme }) => theme.colors.fontcolor_switch};
+  --background_contrast: ${({ theme }) => theme.colors.contrast_color};
+  --fontcolor_contrast: ${({ theme }) => theme.colors.contrast_color};
+  --fontcolor_active: ${({ theme }) => theme.colors.active};
+  --background_active: ${({ theme }) => theme.colors.active};
+  --fontcolor_highlight: ${({ theme }) => theme.colors.highlight};
+  --background_highlight: ${({ theme }) => theme.colors.highlight};
 }
   
 }
@@ -25,7 +28,6 @@ body {
   background:${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
 
-  
 }
 input,
 button,

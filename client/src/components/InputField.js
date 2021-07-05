@@ -17,7 +17,7 @@ const Label = styled.label`
 `
 const Input = styled.input`
   :required {
-    background-color: ${props => props.theme.colors.highlight};
+    background-color: var(--background_highlight);
   }
   :valid {
     background-color: palegreen;

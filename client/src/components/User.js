@@ -62,16 +62,16 @@ export default function User({
 }
 
 const Wrapper = styled.section`
-  color: ${props => props.theme.colors.fontcolor_switch};
-  background-color: ${props => props.theme.colors.background};
+  color: var(--fontcolor_switch);
+  background-color: var(--background);
   width: 100%;
   justify-content: center;
   position: relative;
 `
 
 const Details = styled.div`
-  background-color: ${props => props.theme.colors.background};
-  color: ${props => props.theme.colors.fontcolor};
+  background-color: var(--background);
+  color: var(--fontcolor);
   padding: 10px 20px;
   width: 100%;
   display: grid;
@@ -79,7 +79,7 @@ const Details = styled.div`
 `
 
 const SkillsList = styled.ul`
-  background-color: ${props => props.theme.colors.background};
+  background-color: var(--background);
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -90,17 +90,17 @@ const SkillsList = styled.ul`
 `
 
 const DeleteButtonWrapper = styled.div`
-  background-color: ${props => props.theme.colors.background_switch};
+  background-color: var(--background_switch);
   position: absolute;
   right: -10px;
 `
 
 const ButtonStyled = styled(Button)`
-  background-color: ${props => props.theme.colors.background};
-  color: ${props => props.theme.colors.fontcolor};
+  background-color: var(--background);
+  color: var(--fontcolor);
 `
 
 const HrefStyled = styled.a`
   text-decoration: none;
-  color: ${props => props.theme.colors.contrast_color};
+  color: var(--fontcolor_contrast);
 `

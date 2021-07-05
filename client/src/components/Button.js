@@ -14,18 +14,18 @@ export default function Button({ component: Component = 'button', ...props }) {
 }
 
 const ButtonStyled = styled.button`
-  color: ${props => props.theme.colors.fontcolor};
+  color: var(--fontcolor);
   margin: 10px;
   padding: 5px 12px;
   border: none;
-  box-shadow: 3px 3px var(--contrast_color);
+  box-shadow: 3px 3px var(--background_contrast);
   background: ${props =>
     props.isActive ? props.theme.colors.active : props.theme.colors.background};
-  color: ${props => props.theme.colors.fontcolor};
+  color: var(--fontcolor);
   text-decoration: none;
   text-align: center;
   &:hover {
-    background: ${props => props.theme.colors.highlight};
+    background: var(--background_highlight);
   }
   &[disabled] {
     opacity: 0.6;
