@@ -84,7 +84,7 @@ function App() {
   }
 
   function handleSearchUser(event) {
-    let valueSearchInput = event.target.value.toLowerCase()
+    const valueSearchInput = event.target.value.toLowerCase()
     let findUsers = []
 
     if (valueSearchInput.trim()) {
