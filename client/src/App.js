@@ -2,7 +2,7 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { lightTheme, darkTheme } from './components/Themes'
+import { lightTheme, darkTheme } from './themes/Themes'
 import { useTheme } from './hooks/useTheme'
 
 import GlobalStyles from './GlobalStyles'

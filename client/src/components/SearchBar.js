@@ -24,6 +24,7 @@ export default function SearchBar({ onChange }) {
 
 const Wrapper = styled.div`
   display: grid;
+  padding: 10px 10px;
 `
 
 const InputStyled = styled(InputField)`

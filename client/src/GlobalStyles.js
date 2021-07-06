@@ -17,13 +17,14 @@ const GlobalStyles = createGlobalStyle`
   --background_active: ${({ theme }) => theme.colors.active};
   --fontcolor_highlight: ${({ theme }) => theme.colors.highlight};
   --background_highlight: ${({ theme }) => theme.colors.highlight};
+  --active: '#6bcfd1';
+  --disabled: '#2B7A78'
 }
   
 }
 body {
   font-family: 'Oswald', sans-serif;
   font-size: 112.5%;
-  max-width: 450px;
   align-items: center;
   background:${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};

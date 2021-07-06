@@ -97,6 +97,7 @@ const DeleteButtonWrapper = styled.div`
 const ButtonStyled = styled(Button)`
   background-color: var(--background);
   color: var(--fontcolor);
+  margin: 0px 10px 10px 10px;
 `
 
 const HrefStyled = styled.a`

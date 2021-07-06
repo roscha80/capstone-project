@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import NavBar from './NavBar'
 import { MemoryRouter as Router } from 'react-router-dom'
+
+import NavBar from './NavBar'
 
 describe('NavBar', () => {
   it('renders three NavLinks', async () => {
