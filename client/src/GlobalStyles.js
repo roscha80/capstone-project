@@ -17,8 +17,8 @@ const GlobalStyles = createGlobalStyle`
   --background_active: ${({ theme }) => theme.colors.active};
   --fontcolor_highlight: ${({ theme }) => theme.colors.highlight};
   --background_highlight: ${({ theme }) => theme.colors.highlight};
-  --active: '#6bcfd1';
-  --disabled: '#2B7A78'
+  --button: ${props =>
+    props.isActive ? props.theme.colors.active : props.theme.colors.background}
 }
   
 }

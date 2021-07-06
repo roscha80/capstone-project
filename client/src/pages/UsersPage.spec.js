@@ -7,7 +7,7 @@ describe('UserPage', () => {
       <UsersPage
         users={[
           {
-            id: '1',
+            id: 'TestId_1',
             name: 'Rob',
             phone: '123',
             email: 'a@b.de',
@@ -15,7 +15,7 @@ describe('UserPage', () => {
             skills: ['HTML', 'CSS', 'JavaScript', 'Adobe CS', 'Paint', 'IOS'],
           },
           {
-            id: '2',
+            id: 'TestId_2',
             name: 'Jane Johnson',
             phone: '222222222',
             email: 'Jane@mail.com',

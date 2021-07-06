@@ -22,9 +22,15 @@ describe('Form', () => {
   })
   it('calls submit correctly', () => {
     const handleSubmit = jest.fn()
-    render(<Form onClick={handleSubmit} />)
+    render(<Form onSubmit={handleSubmit} />)
+    const inputName = 
+    userEvent.type(screen.getByText('full name:'), 'Test Name')
+    userEvent.type(screen.getByText('phone:'), '0123456789')
+    userEvent.type(screen.getByText('email:'), 'email@test.de')
+    userEvent.type(screen.getByText('department:'), 'TestLab')
+    userEvent.type(screen.getByText('skills:'), 'Skill')
     const button = screen.getByText('Create User')
     userEvent.click(button)
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
+    expect(handleSubmit).toHaveBeenCalledTimes(1)
   })
 })
