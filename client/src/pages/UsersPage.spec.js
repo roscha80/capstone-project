@@ -2,12 +2,12 @@ import { render, screen } from '@testing-library/react'
 import UsersPage from './UsersPage'
 
 describe('UserPage', () => {
-  it('renders', () => {
+  it('renders two users', () => {
     render(
       <UsersPage
         users={[
           {
-            id: '1',
+            key: 'TestId_1',
             name: 'Rob',
             phone: '123',
             email: 'a@b.de',
@@ -15,7 +15,7 @@ describe('UserPage', () => {
             skills: ['HTML', 'CSS', 'JavaScript', 'Adobe CS', 'Paint', 'IOS'],
           },
           {
-            id: '2',
+            key: 'TestId_2',
             name: 'Jane Johnson',
             phone: '222222222',
             email: 'Jane@mail.com',

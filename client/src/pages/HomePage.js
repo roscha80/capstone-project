@@ -10,16 +10,16 @@ export default function HomePage({ title, onThemeClick }) {
     <Wrapper>
       <Header>{title}</Header>
       <LogoWrapper>
-        <StyledLogo src={logo} alt="image" />
+        <LogoStyled src={logo} alt="image" />
 
         <H2Styled>Skills</H2Styled>
-        <StyledP>
+        <PStyled>
           the bigger a company is, the less is known about the individual
           employees. a lot of skills remain hidden and problems that could be
           solved internally are solved by external people. this causes
           unnecessary costs. with the skills app i make the invisible skills
           visible.
-        </StyledP>
+        </PStyled>
       </LogoWrapper>
       <ButtonStyled onClick={onThemeClick}>
         {'\u25CF'}
@@ -49,18 +49,18 @@ const H2Styled = styled.h2`
   color: var(--fontcolor);
 `
 
-const StyledP = styled.p`
+const PStyled = styled.p`
   color: var(--fontcolor_switch);
   margin: 0 10px 0 10px;
 `
 
-const StyledLogo = styled.img`
+const LogoStyled = styled.img`
   width: 150px;
   height: 150px;
 `
 
 const ButtonStyled = styled(Button)`
-  width: 60px;
+  width: 70px;
   height: 30px;
   background: var(--background_switch);
   color: var(--fontcolor_switch);

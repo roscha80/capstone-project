@@ -16,9 +16,9 @@ export default function NavBar({ pages }) {
     <Nav>
       <Wrapper>
         {pages.map(({ title, id }) => (
-          <Button exact component={NavLink} to={id} key={id}>
+          <ButtonStyled exact component={NavLink} to={id} key={id}>
             {title}
-          </Button>
+          </ButtonStyled>
         ))}
       </Wrapper>
     </Nav>
@@ -41,5 +41,12 @@ const Wrapper = styled.div`
   margin: 12px 0 20px 0;
   @media (max-width: 768px) {
     scale: 90%;
+  }
+`
+
+const ButtonStyled = styled(Button)`
+  padding: 5px 10px;
+  @media (max-width: 360px) {
+    scale: 70%;
   }
 `

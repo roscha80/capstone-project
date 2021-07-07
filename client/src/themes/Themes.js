@@ -5,7 +5,7 @@ export const lightTheme = {
     fontcolor: '#2B7A78',
     fontcolor_switch: '#17252A',
     contrast_color: '#17252A',
-    active: '#6bcfd1',
+    active: '#6BCFD1',
     highlight: '#FFC0CB',
   },
 }
@@ -16,7 +16,7 @@ export const darkTheme = {
     fontcolor: '#DEF2F1',
     fontcolor_switch: '#2B7A78',
     contrast_color: '#17252A',
-    active: '#6bcfd1',
+    active: '#6BCFD1',
     highlight: '#FFC0CB',
   },
 }

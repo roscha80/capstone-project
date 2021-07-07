@@ -19,8 +19,7 @@ const ButtonStyled = styled.button`
   padding: 5px 12px;
   border: none;
   box-shadow: 3px 3px var(--background_contrast);
-  background: ${props =>
-    props.isActive ? props.theme.colors.active : props.theme.colors.background};
+  background: var(--button);
   color: var(--fontcolor);
   text-decoration: none;
   text-align: center;

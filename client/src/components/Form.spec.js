@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import Form from './Form'
 
 describe('Form', () => {
-  it('renders a form', () => {
+  it('renders a form with a submit button', () => {
     render(<Form />)
     expect(screen.getByRole('form')).toBeInTheDocument()
 
@@ -22,9 +22,14 @@ describe('Form', () => {
   })
   it('calls submit correctly', () => {
     const handleSubmit = jest.fn()
-    render(<Form onClick={handleSubmit} />)
+    render(<Form onSubmit={handleSubmit} />)
+    userEvent.type(screen.getByText('full name:'), 'Test Name')
+    userEvent.type(screen.getByText('phone:'), '0123456789')
+    userEvent.type(screen.getByText('email:'), 'email@test.de')
+    userEvent.type(screen.getByText('department:'), 'TestLab')
+    userEvent.type(screen.getByText('skills:'), 'Skill')
     const button = screen.getByText('Create User')
     userEvent.click(button)
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
+    expect(handleSubmit).toHaveBeenCalledTimes(1)
   })
 })

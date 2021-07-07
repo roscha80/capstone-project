@@ -14,7 +14,7 @@ export default function Form({ onSubmit }) {
   const [isDisabled, setIsDisabled] = useState(true)
 
   return (
-    <StyledForm
+    <FormStyled
       aria-label="create a new user"
       onSubmit={handleSubmit}
       onChange={validateForm}
@@ -66,7 +66,7 @@ export default function Form({ onSubmit }) {
         type="submit"
         children="Create User"
       />
-    </StyledForm>
+    </FormStyled>
   )
 
   function handleSubmit(event) {
@@ -105,11 +105,12 @@ export default function Form({ onSubmit }) {
   }
 }
 
-const StyledForm = styled.form`
+const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
   background: var(--background);
+  padding: 0 10px;
 `
 
 const ButtonStyled = styled(Button)`
