@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./src/images/Logo_2C.png"
+  <img src="./client/src/images/Logo_2C.png"
      height="250px"/>
 </div>
 
@@ -14,13 +14,13 @@ This app was developed as my capstone project during the final four weeks of the
 ## App Impressions
 
 <div align="center">
-  <img src="./src/images/homepage.png"
+  <img src="./client/src/images/homepage.png"
      height="400px"/>
-     <img src="./src/images/createpage.png"
+     <img src="./client/src/images/createpage.png"
      height="400px"/>
-     <img src="./src/images/userspage.png"
+     <img src="./client/src/images/userspage.png"
      height="400px"/>
-     <img src="./src/images/searchpage.png"
+     <img src="./client/src/images/searchpage.png"
      height="400px"/>
 </div>
 
